@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 80,
+  "version": 81,
   "isDemo": true,
   "business": {
     "name": "clickatick",
@@ -410,13 +410,14 @@
       "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
     ],
     "aiProvider": "Direct Anthropic Claude API",
-    "sourceRepository": "GitHub if available",
+    "sourceRepository": "https://github.com/Printrune/clickatick",
     "status": "READY and publicly accessible: Vercel project SSO, password protection and trusted IP restrictions are disabled. Unauthenticated homepage and demo listing returned HTTP 200. Realistic Gateway generation remains off pending confirmed positive credit.",
     "project": "ticketnest",
     "projectId": "prj_mKOovqvOBjKSI72gPPRA9Ip1iGES",
     "deploymentId": "dpl_4QktEm8HMznjcjXBDwKtmdJi17Nt",
     "deploymentUrl": "https://ticketnest-psi.vercel.app",
-    "gitLinked": false
+    "gitLinked": false,
+    "sourcePushed": true
   },
   "aiBudget": {
     "status": "Three successful real Claude responses verified historically. Exact billed amount not inspected. Owner approved Vercel AI Gateway for optional realistic images within the same USD10 total test allowance, but current Gateway credit is unconfirmed and image calls remain disabled.",
