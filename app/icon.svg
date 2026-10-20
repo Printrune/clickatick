@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>clickatick</title>
+  <g transform="rotate(-12 32 32)">
+    <path fill="#8b3dff" d="M11 10h42a5 5 0 0 1 5 5v9a8 8 0 0 0 0 16v9a5 5 0 0 1-5 5H11a5 5 0 0 1-5-5v-9a8 8 0 0 0 0-16v-9a5 5 0 0 1 5-5Z"/>
+    <path fill="#fff" d="m27 21 21 17-10 2 4 10-6 2-4-10-7 7Z"/>
+  </g>
+</svg>

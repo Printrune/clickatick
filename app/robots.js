@@ -1,0 +1,1 @@
+import {indexable,absolute} from '../lib/site';export default function robots(){return {rules:{userAgent:'*',...(indexable?{allow:'/'}:{disallow:'/'})},...(indexable?{sitemap:absolute('/sitemap.xml')}:{})};}

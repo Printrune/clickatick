@@ -1,0 +1,272 @@
+[
+  {
+    "path": "yc-interface-craft/SKILL.md",
+    "localHash": "8cf5e799a359faf9c63f466622e55571cd3067c67126879e95775565aac9944e",
+    "suppliedHash": "8cf5e799a359faf9c63f466622e55571cd3067c67126879e95775565aac9944e"
+  },
+  {
+    "path": "yc-interface-craft/agents/openai.yaml",
+    "localHash": "6097e47d53640867b64aa4fe9617aca3db9157149eabbd27485dc271fb3b2e85",
+    "suppliedHash": "6097e47d53640867b64aa4fe9617aca3db9157149eabbd27485dc271fb3b2e85"
+  },
+  {
+    "path": "yc-interface-craft/references/company-index.json",
+    "localHash": "4c239ff4cdb3af706eb4b7cb700bd3162fbf64bf732453504f1657bbfead6eb6",
+    "suppliedHash": "4c239ff4cdb3af706eb4b7cb700bd3162fbf64bf732453504f1657bbfead6eb6"
+  },
+  {
+    "path": "yc-interface-craft/references/direction-workshop.md",
+    "localHash": "dbe414216e26b2429ca10f5725d7021b4c36b1e4ed07e93dabd52e6dac4aa45f",
+    "suppliedHash": "dbe414216e26b2429ca10f5725d7021b4c36b1e4ed07e93dabd52e6dac4aa45f"
+  },
+  {
+    "path": "yc-interface-craft/references/motion-and-quality.md",
+    "localHash": "d92a49dadf7d29bdc285a64dc9c77d86f1f3e00d39ae7cfc8670bdaff1302b3a",
+    "suppliedHash": "d92a49dadf7d29bdc285a64dc9c77d86f1f3e00d39ae7cfc8670bdaff1302b3a"
+  },
+  {
+    "path": "yc-interface-craft/references/research-and-examples.md",
+    "localHash": "7bf70bb40a363551161416764909b1ff7fbf7f7a2bfb597525569854d7200a1d",
+    "suppliedHash": "7bf70bb40a363551161416764909b1ff7fbf7f7a2bfb597525569854d7200a1d"
+  },
+  {
+    "path": "yc-interface-craft/references/system-and-surfaces.md",
+    "localHash": "355c2a9265d30e941b48976fc25ae5da7ee1e6d07769e0e92e2d53705aade804",
+    "suppliedHash": "355c2a9265d30e941b48976fc25ae5da7ee1e6d07769e0e92e2d53705aade804"
+  },
+  {
+    "path": "intentional-ui-design/SKILL.md",
+    "localHash": "b1967540ca5a70d00844a8a70c9f89e1cfe6ae20647fe93d5700c4fc64d81b0c",
+    "suppliedHash": "b1967540ca5a70d00844a8a70c9f89e1cfe6ae20647fe93d5700c4fc64d81b0c"
+  },
+  {
+    "path": "illustration-design-grammar/SKILL.md",
+    "localHash": "eeeea0ae257b38baf6707b4ee29b52cf8a984f6a307bf8f2aaa14f033506c21b",
+    "suppliedHash": "eeeea0ae257b38baf6707b4ee29b52cf8a984f6a307bf8f2aaa14f033506c21b"
+  },
+  {
+    "path": "emil-design-eng/SKILL.md",
+    "localHash": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939",
+    "suppliedHash": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939"
+  },
+  {
+    "path": "frontend-design/LICENSE.txt",
+    "localHash": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+    "suppliedHash": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  },
+  {
+    "path": "frontend-design/SKILL.md",
+    "localHash": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    "suppliedHash": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+  },
+  {
+    "path": "product-marketing/SKILL.md",
+    "localHash": "19ece0fa75c72a5a8b6e90db80f506586f54cc93bae6bffbb1bd2ef4ae7d603c",
+    "suppliedHash": "19ece0fa75c72a5a8b6e90db80f506586f54cc93bae6bffbb1bd2ef4ae7d603c"
+  },
+  {
+    "path": "product-marketing/evals/evals.json",
+    "localHash": "0c6599b88f50ec1be91096a36ba6c5a15cf8312151394e3469e5ddb991b19afb",
+    "suppliedHash": "0c6599b88f50ec1be91096a36ba6c5a15cf8312151394e3469e5ddb991b19afb"
+  },
+  {
+    "path": "product-marketing/references/brand-voice.md",
+    "localHash": "932f3453db2761f03050792e39800150495dab449750b40913a4314ea97e7672",
+    "suppliedHash": "932f3453db2761f03050792e39800150495dab449750b40913a4314ea97e7672"
+  },
+  {
+    "path": "lead-magnets/SKILL.md",
+    "localHash": "190a64c72a9a36fdde3a6b0888798e1bb9dd4e7406b00a6bbf90dba5e64c047b",
+    "suppliedHash": "190a64c72a9a36fdde3a6b0888798e1bb9dd4e7406b00a6bbf90dba5e64c047b"
+  },
+  {
+    "path": "lead-magnets/evals/evals.json",
+    "localHash": "459b4b4f69f5717f23f3029597026c07f1201978e0bc1923f918501da3fe7a6f",
+    "suppliedHash": "459b4b4f69f5717f23f3029597026c07f1201978e0bc1923f918501da3fe7a6f"
+  },
+  {
+    "path": "lead-magnets/references/benchmarks.md",
+    "localHash": "becdf4bcde17e788ead10794c797294548c712ea1074e042336da93433a61187",
+    "suppliedHash": "becdf4bcde17e788ead10794c797294548c712ea1074e042336da93433a61187"
+  },
+  {
+    "path": "lead-magnets/references/content-to-skill-corpus-design.md",
+    "localHash": "a6db00a8298b2ce52965c40b57c01120a0f9ff4caf5ca55ede81bc2f242bae56",
+    "suppliedHash": "a6db00a8298b2ce52965c40b57c01120a0f9ff4caf5ca55ede81bc2f242bae56"
+  },
+  {
+    "path": "lead-magnets/references/content-to-skill-release.md",
+    "localHash": "87bcc9218232b73b824e8cebac1e64deacffa755779ce2cc0db799c92873c891",
+    "suppliedHash": "87bcc9218232b73b824e8cebac1e64deacffa755779ce2cc0db799c92873c891"
+  },
+  {
+    "path": "lead-magnets/references/content-to-skill.md",
+    "localHash": "dacbfff6d538ee37167f20034165dbf3a273d8bd1607def6450c649e40ebafa9",
+    "suppliedHash": "dacbfff6d538ee37167f20034165dbf3a273d8bd1607def6450c649e40ebafa9"
+  },
+  {
+    "path": "lead-magnets/references/format-guide.md",
+    "localHash": "401f65d709cefbd7ee2df11273e0b616ec50e37e71d914556c800067fdcdef8e",
+    "suppliedHash": "401f65d709cefbd7ee2df11273e0b616ec50e37e71d914556c800067fdcdef8e"
+  },
+  {
+    "path": "copywriting/SKILL.md",
+    "localHash": "13c580c2432a4499e9dfdcf5d553df7aa6589e90cf5bd869fb4fbde5caf9f567",
+    "suppliedHash": "13c580c2432a4499e9dfdcf5d553df7aa6589e90cf5bd869fb4fbde5caf9f567"
+  },
+  {
+    "path": "copywriting/evals/evals.json",
+    "localHash": "ccec86052a0edd8646d0e50e63c08e0e971f443d8f6e9178843a1629f79efdb0",
+    "suppliedHash": "ccec86052a0edd8646d0e50e63c08e0e971f443d8f6e9178843a1629f79efdb0"
+  },
+  {
+    "path": "copywriting/references/ai-tells.md",
+    "localHash": "b98c3a19b3a75c714d69e80a0076e4c07244b0e833c2ce81ff2631224fb7f7b2",
+    "suppliedHash": "b98c3a19b3a75c714d69e80a0076e4c07244b0e833c2ce81ff2631224fb7f7b2"
+  },
+  {
+    "path": "copywriting/references/copy-frameworks.md",
+    "localHash": "352122944bf9e891ceb0e003adce41591d111e9d97057700626249919dfe430d",
+    "suppliedHash": "352122944bf9e891ceb0e003adce41591d111e9d97057700626249919dfe430d"
+  },
+  {
+    "path": "copywriting/references/natural-transitions.md",
+    "localHash": "9bd61b0de5be2c4de4ce130c68236b4f290b12737823827a458bb2b4c8584683",
+    "suppliedHash": "9bd61b0de5be2c4de4ce130c68236b4f290b12737823827a458bb2b4c8584683"
+  },
+  {
+    "path": "copy-editing/SKILL.md",
+    "localHash": "2a072606d9d5662509ea6ef62c65719487dcb68876acab9286bde4d1af5c030f",
+    "suppliedHash": "2a072606d9d5662509ea6ef62c65719487dcb68876acab9286bde4d1af5c030f"
+  },
+  {
+    "path": "copy-editing/evals/evals.json",
+    "localHash": "cc18c9f51094058759267d465cfcc50da65f248f66b923326781aa642d622ca7",
+    "suppliedHash": "cc18c9f51094058759267d465cfcc50da65f248f66b923326781aa642d622ca7"
+  },
+  {
+    "path": "copy-editing/references/checklist.md",
+    "localHash": "4cf94c922286223681fc53721fcc65ae7299f1e36e797e7397d369d674580c60",
+    "suppliedHash": "4cf94c922286223681fc53721fcc65ae7299f1e36e797e7397d369d674580c60"
+  },
+  {
+    "path": "copy-editing/references/content-refresh.md",
+    "localHash": "ba73cdf278fe6b552eee27eb1452494f11f9d17ef67d720657e0982f76fb961b",
+    "suppliedHash": "ba73cdf278fe6b552eee27eb1452494f11f9d17ef67d720657e0982f76fb961b"
+  },
+  {
+    "path": "copy-editing/references/plain-english-alternatives.md",
+    "localHash": "df4f820d4c63ae8a517c64a243c101658352cd07d002355bf3c97de0a00f3775",
+    "suppliedHash": "df4f820d4c63ae8a517c64a243c101658352cd07d002355bf3c97de0a00f3775"
+  },
+  {
+    "path": "cro/SKILL.md",
+    "localHash": "6e172cc38178c800ff41ceb097f36c6a1db8035fb88a1fee53043f8ec38a6f35",
+    "suppliedHash": "6e172cc38178c800ff41ceb097f36c6a1db8035fb88a1fee53043f8ec38a6f35"
+  },
+  {
+    "path": "cro/evals/evals.json",
+    "localHash": "62f3003602836e2b49d797ca582e7703629a6b07b131eb77b51b2bb39fe65775",
+    "suppliedHash": "62f3003602836e2b49d797ca582e7703629a6b07b131eb77b51b2bb39fe65775"
+  },
+  {
+    "path": "cro/references/experiments.md",
+    "localHash": "bbcc356c0af36cfaa4556bf9e929deac30c65cafb37f909d7c51d4777fe254ca",
+    "suppliedHash": "bbcc356c0af36cfaa4556bf9e929deac30c65cafb37f909d7c51d4777fe254ca"
+  },
+  {
+    "path": "cro/references/form.md",
+    "localHash": "49b8f29b3da1ae6510572288cad3eb1f3d43a969373443be98b38639746587e6",
+    "suppliedHash": "49b8f29b3da1ae6510572288cad3eb1f3d43a969373443be98b38639746587e6"
+  },
+  {
+    "path": "animate/RECIPES.md",
+    "localHash": "21ff63d84391db8d96ecdf9170095f55a42c836ccc36fd3269c4772bab031ba2",
+    "suppliedHash": "21ff63d84391db8d96ecdf9170095f55a42c836ccc36fd3269c4772bab031ba2"
+  },
+  {
+    "path": "animate/SKILL.md",
+    "localHash": "b8ede161270458e6ae2e45e8a1985373515d4c63de5568ddb0f9012d7634356c",
+    "suppliedHash": "b8ede161270458e6ae2e45e8a1985373515d4c63de5568ddb0f9012d7634356c"
+  },
+  {
+    "path": "animation-vocabulary/SKILL.md",
+    "localHash": "40d2b27adfdfeb0570a9f20e7d0255109d9233c50603878bcd0dcd04c923fd94",
+    "suppliedHash": "40d2b27adfdfeb0570a9f20e7d0255109d9233c50603878bcd0dcd04c923fd94"
+  },
+  {
+    "path": "animation-performance/SKILL.md",
+    "localHash": "ceb9dd3fe912615830f725a0120ccf8d012d15a6218001a5cd6c15d38e39a957",
+    "suppliedHash": "ceb9dd3fe912615830f725a0120ccf8d012d15a6218001a5cd6c15d38e39a957"
+  },
+  {
+    "path": "review-animations/SKILL.md",
+    "localHash": "6ff590d29e436766135aa3d137be1fac2a867165c7257fc315b189361f1873af",
+    "suppliedHash": "6ff590d29e436766135aa3d137be1fac2a867165c7257fc315b189361f1873af"
+  },
+  {
+    "path": "review-animations/STANDARDS.md",
+    "localHash": "e7d3605034acda54ca13e43aec9e64d65b53de20f75b11b8d694e373012fbe07",
+    "suppliedHash": "e7d3605034acda54ca13e43aec9e64d65b53de20f75b11b8d694e373012fbe07"
+  },
+  {
+    "path": "find-animation-opportunities/SKILL.md",
+    "localHash": "d52a377819b84a71930f0c822cfe2849f40301605a2d5c7eccbfa3b257700df2",
+    "suppliedHash": "d52a377819b84a71930f0c822cfe2849f40301605a2d5c7eccbfa3b257700df2"
+  },
+  {
+    "path": "improve-animations/AUDIT.md",
+    "localHash": "551c8473e20e5f4774680bc24d45e1c68e50992582720905c6b077756b7b5a55",
+    "suppliedHash": "551c8473e20e5f4774680bc24d45e1c68e50992582720905c6b077756b7b5a55"
+  },
+  {
+    "path": "improve-animations/PLAN-TEMPLATE.md",
+    "localHash": "0a08ac8e23fd2082d7ffb86aeed7b789de77328c3cf874b16f1a755f2ef0a6ad",
+    "suppliedHash": "0a08ac8e23fd2082d7ffb86aeed7b789de77328c3cf874b16f1a755f2ef0a6ad"
+  },
+  {
+    "path": "improve-animations/SKILL.md",
+    "localHash": "73962447464433476343e2c12cd08ab39cc99a9e5f3c118c5fb54ed897574ef6",
+    "suppliedHash": "73962447464433476343e2c12cd08ab39cc99a9e5f3c118c5fb54ed897574ef6"
+  },
+  {
+    "path": "pick-ui-library/SKILL.md",
+    "localHash": "675fdce308683256ed617351a9b74d23457a5fbd0a562d9831b9c764b8c5e682",
+    "suppliedHash": "675fdce308683256ed617351a9b74d23457a5fbd0a562d9831b9c764b8c5e682"
+  },
+  {
+    "path": "prototype/PICKER.md",
+    "localHash": "31a55eec94715cc79942e91e172e539e3031dcd5e2e5ee7c1446cf2caee960a6",
+    "suppliedHash": "31a55eec94715cc79942e91e172e539e3031dcd5e2e5ee7c1446cf2caee960a6"
+  },
+  {
+    "path": "prototype/SKILL.md",
+    "localHash": "bba39c955eb1871c5a02733976ceec5d0324198e0812e667604756489c89f7b9",
+    "suppliedHash": "bba39c955eb1871c5a02733976ceec5d0324198e0812e667604756489c89f7b9"
+  },
+  {
+    "path": "break-ui/CATALOG.md",
+    "localHash": "7358efcc6bb48e35187be1c064cf60022dcb18c72c18fab58b606dfc5f421f15",
+    "suppliedHash": "7358efcc6bb48e35187be1c064cf60022dcb18c72c18fab58b606dfc5f421f15"
+  },
+  {
+    "path": "break-ui/SKILL.md",
+    "localHash": "e7eec1d70ac56a04255e9c0dbe98084ea3d544cc04aaad34f32c95d6fa9dff5e",
+    "suppliedHash": "e7eec1d70ac56a04255e9c0dbe98084ea3d544cc04aaad34f32c95d6fa9dff5e"
+  },
+  {
+    "path": "ask-sonner/API.md",
+    "localHash": "4bb06f482c5757529e3d7a672a30fbeed42d24919a63e2571384a9ce1549aa7f",
+    "suppliedHash": "4bb06f482c5757529e3d7a672a30fbeed42d24919a63e2571384a9ce1549aa7f"
+  },
+  {
+    "path": "ask-sonner/SKILL.md",
+    "localHash": "39f3ee185b3aa2cf70a689052ff078953ce7ba5915ed7a9391d232e9d4dcf57f",
+    "suppliedHash": "39f3ee185b3aa2cf70a689052ff078953ce7ba5915ed7a9391d232e9d4dcf57f"
+  },
+  {
+    "path": "workshop-owner-language/SKILL.md",
+    "localHash": "0ca29d37177342ef48a1261181c5f518a779f1883e81a5239f6f72632c616a3a",
+    "suppliedHash": "0ca29d37177342ef48a1261181c5f518a779f1883e81a5239f6f72632c616a3a"
+  }
+]

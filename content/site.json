@@ -1,0 +1,804 @@
+{
+  "schemaVersion": 1,
+  "version": 77,
+  "isDemo": true,
+  "business": {
+    "name": "clickatick",
+    "audienceType": "b2b",
+    "description": "Create event and activity tickets quickly through voice or chat. Prepare ticket types, prices and event details for review.",
+    "customer": "Independent local event organisers and activity providers in the United States.",
+    "industry": "Event and activity ticketing",
+    "region": "United States",
+    "offer": "Quick ticket setup through a conversation, with event details and ticket types prepared for review.",
+    "pricing": {
+      "model": "percentage-of-ticket-price",
+      "display": "10% platform fee. Business-funded referral rewards come from the remaining 90%. Payment processing fee allocation remains to be confirmed.",
+      "approved": true
+    }
+  },
+  "intake": {
+    "answers": [
+      "Agent installation means adding workshop bots to Grok, not installing software on customer devices.",
+      "Support event organisers and activity providers equally.",
+      "Custom agents and connected services are the product focus.",
+      "First workflow: the agent asks questions and creates a listing from answers.",
+      "Use live artificial intelligence, voice input, text chat, and spoken questions.",
+      "Organisers review listing drafts before publication.",
+      "Pricing: 1% of ticket price; payment provider fees are separate.",
+      "Working name: TicketNest. Initial market: United States.",
+      "First audience: independent local providers.",
+      "Support single-date events and activities with several bookable dates.",
+      "Activity schedules support individually entered dates and repeating schedules.",
+      "No account is required to create a draft; login is required to publish.",
+      "The agent must have a natural conversation, rather than follow a rigid questionnaire.",
+      "Publishing is included after login and organiser review. Payments are outside the demonstration.",
+      "Published listings must be publicly accessible. Owner permits Vercel or GitHub hosting based on live AI requirements.",
+      "Owner approved paid AI usage with a maximum total demonstration budget of USD 10. No AI service account exists yet.",
+      "Owner confirmed direct AI service connection first. Defer CLIProxyAPI until the final optional integration step.",
+      "Use the supplied ticketing system for event listings and ticket types, not admission ticket issuance.",
+      "Start with a new database. Do not reuse the exported project database or data.",
+      "Remove Lovable-specific branding, dependencies, hosted project mapping, and gateway references.",
+      "Owner superseded the paid USD 10 allowance: free plans only, no paid AI top-ups or upgrades. Use Vercel AI Gateway free credits.",
+      "Owner requested development on this computer first after Vercel authorization remained blocked. Local-only storage and organiser testing will precede hosted deployment.",
+      "Owner cancelled local AI/Ollama setup. Leave AI disconnected for now; choose Vercel AI Gateway or Claude API later. Continue local event and ticket-type backend.",
+      "Owner requested connecting TicketNest to Vercel. Separate project created and source deployed; AI and hosted persistence stay disabled.",
+      "Owner requested adding Vercel free AI to the deployed app and confirmed free credits available with automatic top-ups off.",
+      "Owner changed AI provider to Claude API and authorized up to USD 10 total testing. No automatic top-ups.",
+      "Owner requested an evolving illustrated homepage: human with idea bubble, click to select voice or typing, scene develops from conversational event details. Example: Halloween guided tour, guide and audience matching capacity, paper or phone tickets based on selected format. Futuristic, fast, smooth visual treatment. Ask clarifying questions one at a time before final design.",
+      "Owner approved stylised 3D if smooth, 2D fallback; expanded idea bubble contains conversation and scene. Automatic scene changes. Neutral character, no appearance menus. Optional camera snapshot guides visible likeness, no gender inference. Owner said yes make it so.",
+      "Owner saved a private Claude API key in Vercel and confirmed no more than USD 10 prepaid API credits with automatic refills disabled. Production activation authorized.",
+      "Owner requested a front-page-only audit and a complete problem list, especially for the visual scene. Review first; no implementation changes requested in this turn.",
+      "Owner approved fixing the front-page audit, starting with visuals: smoothly expand the bubble, keep the conversation inside it, and make the scene feel alive as answers arrive.",
+      "Owner prioritizes quick, hassle-free ticket creation. Every accepted answer should visibly add to the evolving illustration. On bubble click request camera permission, automatically capture one frame, adapt only the main avatar from visible features, never show the actual photo. Keep the process seamless.",
+      "Owner wants interactive spoken conversation: agent asks questions aloud, listens to the user answer, then asks the next question. Replace isolated dictation/manual-send voice behavior.",
+      "Owner renamed the product to clickatick, using lowercase spelling.",
+      "Voice mode must open the microphone immediately after user entry and permission, allowing immediate speech like a voice chat.",
+      "Owner requested five clickatick logo versions with purple symbols and purple name. Final version not selected.",
+      "Owner selected logo concept1: purple ticket with cursor cutout and purple lowercase wordmark.",
+      "Owner approved reusable business or attraction location with address, photo and precise map marker. A same-location checkbox reuses these details; otherwise event address, photo and map marker fields appear.",
+      "Owner approved organiser-defined concession categories and a total ticket quantity. Numbered seats and arena seating are excluded from this iteration.",
+      "Include separate free-text fields for participation restrictions and organiser disclaimer. Restrictions, including any organiser-defined minimum age or participation conditions, must be clear on the listing.",
+      "Owner requests a disclaimer on every ticket and activity-aware suggested disclaimer/restriction text for organiser review. Suggested terms remain editable drafts and are not represented as guaranteed liability protection.",
+      "Owner requires a precise map pin as well as an address for business and event locations, connected to an external maps provider such as Google Maps or Bing Maps. Provider and synchronization behavior remain to be specified.",
+      "Owner requires automatic digital confirmation for every completed ticket sale to the consumer.",
+      "Owner requests a customer referral scheme with a personal referral code and an immediate reward for each resulting ticket purchase. Each business controls its reward offer. Example: 10% of a USD 55 ticket is USD 5.50.",
+      "Owner changed the platform fee from 1% to 10%, intending businesses to retain 90%. Whether referral rewards and payment processing fees reduce that 90% remains unresolved.",
+      "Owner confirmed referral rewards are funded entirely by the business from its 90% share of each ticket. The business sets the reward amount. The platform retains its 10% fee.",
+      "Owner confirmed each event or attraction has an editable numeric referral percentage chosen by its business, with no fixed preset percentage.",
+      "Owner approved preparing a simple business setup flow and consumer purchase flow covering map pins, digital confirmations and referral rewards.",
+      "Owner clarified referral payout happens only after the event has occurred. If the event is cancelled for any reason, no referral payout occurs. This supersedes any interpretation of immediate cash payout at purchase.",
+      "Owner requests a final-sale refund policy to reduce referral payout exposure. Proposed wording must preserve applicable consumer rights and cancellation exceptions; final legal terms are not approved.",
+      "Owner explicitly selected launch scope for optional referrals. Each business may enable referrals per event or attraction, set its own numeric percentage, and fund rewards from its 90% share. Referral payout occurs only after the event happens; cancellations produce no payout. This is a launch requirement, not evidence of an implemented service.",
+      "Owner requests a supportive reminder in listings explaining that customer bookings help businesses survive and thrive. Proposed copy should encourage considerate booking without pressuring customers to give up refund or dispute rights. Do not describe every organiser as a small business without verification.",
+      "Owner requests broad digital payment acceptance: credit cards, bank transfers, digital wallets, Bitcoin and other cryptocurrencies including wallet connections such as MetaMask, and a service referred to as EPay. Cash and cheques are explicitly excluded. Universal coverage is an ambition, not verified provider support.",
+      "Owner explicitly instructed implement everything from the recorded requirements. Build supported local behavior now; do not claim unconfigured payment, email or payout services work. Exact EPay provider remains unknown.",
+      "Owner clarified implementation is just the front page. Implement front-page guided setup, preview and draft configuration for recorded requirements. Do not build or activate real payment collection, email delivery or referral payout services in this change.",
+      "Owner has the Claude API, not an OpenAI speech key. Keep Claude for conversation; repair browser voice now and leave prepared Fable speech disabled until separately configured.",
+      "Owner rejected a date-only workaround and requested a fundamental reliability fix across all event and ticket fields. The conversation should handle incomplete or ambiguous answers intelligently without stopping.",
+      "Owner reports repeated What ticket category would you like to add or change? after answering the shared-capacity question. Exact context: assistant asks whether limit10 is shared across kids and adults or allocated; owner says it should between them, then nothing when asked the repeated category question. This means one shared total10 and no category changes.",
+      "Owner approved anonymous Review then Publish, a public listing and demo ticket purchases. No real payment or admission ticket is created."
+    ],
+    "openQuestions": [
+      "Brand name availability remains unchecked.",
+      "Before public activation: verify provider/model maximum costs, anonymous abuse controls, database permissions, email delivery, and real publication.",
+      "Should concession categories draw from one shared total ticket pool, or each have a separate fixed allocation?",
+      "Admission ticket issuance was excluded from the current demo; disclaimer rendering on issued tickets is a future ticket-output requirement unless scope is expanded.",
+      "Digital confirmations and referral rewards require a purchase flow beyond the current listing-and-ticket-types demo. Delivery channel and external map behavior remain to be defined.",
+      "How are third-party payment processing fees allocated?",
+      "Define exact payout timing after event completion, later refund/dispute handling, rescheduling and the booked occurrence for repeating activities. Immediate pending-reward visibility is proposed, not yet approved.",
+      "Which exact service does the owner mean by EPay?",
+      "Select payment providers and verify supported methods, countries, currencies, settlement, refund handling and referral payouts before committing to payment coverage. Define launch coverage versus later integrations."
+    ]
+  },
+  "positioning": {
+    "status": "approved",
+    "headline": "Create tickets. Skip the hassle.",
+    "summary": "clickatick helps local event and activity organizers create ticket listings quickly through voice or chat.",
+    "difference": "Proposed benefit: direct voice access and simple setup. Demand and differentiation remain unvalidated.",
+    "sources": [
+      {
+        "title": "Ticket Tailor conversational event creation",
+        "date": "2026-10-17",
+        "url": "https://help.tickettailor.com/en/articles/16983272-how-can-i-build-a-ticket-tailor-event-with-ai",
+        "id": "ticket-tailor-ai"
+      },
+      {
+        "title": "Eventbrite ticketing fees",
+        "date": "2026-10-17",
+        "url": "https://www.eventbrite.com/help/en-us/articles/755615/how-much-does-it-cost-for-organizers-to-use-eventbrite/",
+        "id": "eventbrite-fees"
+      },
+      {
+        "title": "Peek Pro activity booking platform",
+        "date": "2026-10-17",
+        "url": "https://support.peek.com/hc/en-us/articles/44207663902868-What-Is-Peek-Pro",
+        "id": "peek-pro"
+      },
+      {
+        "url": "https://www.tickettailor.com/pricing",
+        "title": "Ticket Tailor pricing models; fetched currency GBP, no US amount verified",
+        "date": "2026-10-17",
+        "id": "research-v1-ticket-tailor-pricing"
+      },
+      {
+        "url": "https://support.google.com/docs/answer/2839588?hl=en",
+        "title": "Google Forms publication and sharing",
+        "date": "2026-10-17",
+        "id": "research-v1-google-form-share"
+      },
+      {
+        "url": "https://support.google.com/docs/answer/2917686?hl=en",
+        "title": "Google Forms responses linked to a spreadsheet",
+        "date": "2026-10-17",
+        "id": "research-v1-google-form-responses"
+      }
+    ]
+  },
+  "product": {
+    "status": "draft",
+    "journey": "listing",
+    "primaryAction": {
+      "label": "Create tickets",
+      "href": "/start"
+    },
+    "outcome": "Create and review a listing through conversation, publish a public demo without login, and let guests complete a simulated ticket purchase.",
+    "acceptance": [
+      "Start a listing draft without an account.",
+      "Have a natural conversation through live artificial intelligence using voice or text; show and speak agent replies.",
+      "Accept several details in one answer, remember supplied details, and ask focused follow-up questions only when needed.",
+      "Support single-date events, activity dates, weekly schedules, and multiple ticket types with separate prices and quantities.",
+      "Review and edit the listing draft; require login and an explicit Publish action before publication. Payments are outside the demonstration."
+    ]
+  },
+  "brand": {
+    "accent": "#18594b",
+    "ink": "#183c34",
+    "paper": "#f5f7f3",
+    "straplines": [
+      "The ticket platform that isn’t ripping anyone off.",
+      "Keep 90%. Pay with anything.",
+      "Your guests pay the ticket price. Not a penny more."
+    ],
+    "straplineNote": "Owner-approved positioning copy. Payments are not connected. Supported methods and processing fees are still to be confirmed. Referral rewards come from the business share.",
+    "bubbleLabel": {
+      "prefix": "Create my",
+      "alternatingWords": [
+        "ticket",
+        "event"
+      ],
+      "behavior": "Alternate automatically between the two labels; preserve draft resume behavior."
+    }
+  },
+  "about": {
+    "status": "draft",
+    "headline": "The people and purpose behind your business.",
+    "body": [],
+    "facts": []
+  },
+  "articles": [],
+  "solutions": [],
+  "siteUrl": null,
+  "publicationApproved": false,
+  "approvals": [
+    {
+      "evidence": "Owner answered yes to the positioning recommendation.",
+      "status": "approved",
+      "stage": "positioning",
+      "date": "2026-10-17"
+    },
+    {
+      "evidence": "Owner answered both to single-date events and activities with several bookable dates.",
+      "status": "confirmed",
+      "stage": "listing-date-scope",
+      "date": "2026-10-17"
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "activity-scheduling",
+      "status": "confirmed",
+      "evidence": "Owner selected both individually entered dates and repeating schedules."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "demo-scope-revision",
+      "status": "confirmed",
+      "evidence": "Owner requested natural conversation and publishing after login, with payments outside the demo."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "public-listings",
+      "status": "confirmed",
+      "evidence": "Owner requested public listings and delegated hosting choice between Vercel and GitHub based on AI needs."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "ai-usage-budget",
+      "status": "approved",
+      "evidence": "Owner agreed to paid AI usage and specified 10 US dollars as the maximum."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "design-direction",
+      "status": "approved",
+      "evidence": "Owner selected Clear workspace with conversation beside the live listing preview."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "specialist-workflow",
+      "status": "approved",
+      "evidence": "Owner instructed Codex to use the eight supplied role instructions for each step."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "homepage-refinement",
+      "status": "requested",
+      "evidence": "Owner requested more colour and interactive event listing creation on the front page."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "backend-integration-scope",
+      "status": "confirmed",
+      "evidence": "Owner selected event listings and ticket types."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "database-selection",
+      "status": "confirmed",
+      "evidence": "Owner selected a new database."
+    },
+    {
+      "date": "2026-10-17",
+      "stage": "free-only-vercel-ai",
+      "status": "approved",
+      "evidence": "Owner requested free plans only, asked about Vercel AI credits, then said Lets use that. Supersedes paid AI budget."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "local-first",
+      "status": "requested",
+      "evidence": "Owner: lets start with making it on this computer."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "ai-deferred",
+      "status": "confirmed",
+      "evidence": "Owner does not want Ollama; leave AI for later, either Vercel or Claude API."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "vercel-free-ai-activation",
+      "status": "approved",
+      "evidence": "Owner: Add free vercel AI version; confirmed Free credits available; top-ups off."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "claude-api-budget",
+      "status": "approved",
+      "evidence": "Owner: change it to claude API AI; selected Up to $10 total."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "illustrated-conversation-redesign",
+      "status": "requested",
+      "evidence": "Owner requested interactive idea bubble, voice/type choice, evolving event illustrations and clarifying questions."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "story-scene-implementation",
+      "status": "approved",
+      "evidence": "Owner confirmed bubble expansion, automatic changes, neutral character with optional camera snapshot, no gender inference, then yes make it so."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "claude-production-activation",
+      "status": "approved",
+      "evidence": "Owner confirmed prepaid allowance and automatic refills disabled, then yes."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "homepage-visual-rebuild",
+      "status": "approved",
+      "evidence": "Owner: Fix these, starting with the visual section. Make the bubble expand smoothly, keep the conversation inside it, and make the scene feel alive as the user answers."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "quick-ticket-avatar-refinement",
+      "status": "approved",
+      "evidence": "Owner requested quick ticket-creation copy, smoother per-answer scene additions, and permission-based automatic snapshot to change the main avatar without showing a photo."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "interactive-voice",
+      "status": "approved",
+      "evidence": "Owner: the speaking part should be interactive. The agent should be asking user questions."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "brand-name",
+      "status": "approved",
+      "evidence": "Owner: Change the name to clickatick."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "immediate-voice-chat",
+      "status": "approved",
+      "evidence": "Owner wants to talk immediately after selecting voice, like voice chat in Codex or Claude."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "logo-concepts",
+      "status": "approved",
+      "evidence": "Create5 versions of logo that match the name. Make logo and name purple."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "logo-selection",
+      "status": "approved",
+      "evidence": "Owner: first one."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "locations-and-concessions",
+      "status": "approved",
+      "evidence": "Voice discussion approved reusable business location, conditional separate event location, custom concessions and deferring numbered seating. Owner: That is fine by me."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "restrictions-and-disclaimer",
+      "status": "requested",
+      "evidence": "Owner requested a clear restrictions section and a separate free-flow disclaimer field during the voice product walkthrough."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "ticket-disclaimer-suggestions",
+      "status": "requested",
+      "evidence": "Owner requested self-populating prompts and disclaimers on every ticket, including walking tours."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "platform-fee-and-commerce-requirements",
+      "status": "requested",
+      "evidence": "Owner explicitly set a 10% platform fee and requested precise map pins, digital confirmation for every sale, and business-controlled customer referral rewards."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "referral-reward-funding",
+      "status": "confirmed",
+      "evidence": "Owner confirmed each business chooses and funds referral rewards from its 90% share per ticket; the platform fee remains 10%."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "referral-rate-and-payout-timing",
+      "status": "confirmed",
+      "evidence": "Owner specifies a free-entry percentage per event or attraction. Referral payout is only after the event occurs; cancelled events produce no payout. Owner approved drafting both setup and purchase flows."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "optional-referrals-launch-scope",
+      "status": "approved",
+      "evidence": "Asked whether optional business-controlled referrals belong in launch scope or phase two, the owner answered Launch scope."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "digital-payment-coverage",
+      "status": "requested",
+      "evidence": "Owner requested all digital payment formats, naming cards, bank transfers, Bitcoin, other cryptocurrencies, MetaMask and EPay; explicitly excluded cash and cheques."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "commerce-implementation",
+      "status": "approved",
+      "evidence": "Owner said implement everything after reviewing recorded business setup, locations, restrictions, tickets, confirmations, referrals and digital payment requirements."
+    },
+    {
+      "date": "2026-10-18",
+      "stage": "front-page-implementation-boundary",
+      "status": "confirmed",
+      "evidence": "Owner clarified: Yes, this is just the front page."
+    }
+  ],
+  "coordination": {
+    "status": "local-workflow",
+    "notes": "Owner instructed Codex to replace Grok. Codex handles product, research, design, and implementation in this workspace."
+  },
+  "hosting": {
+    "recommended": "Vercel",
+    "reason": "Server functions support AI requests and authentication. GitHub Pages alone provides static hosting.",
+    "sources": [
+      "https://vercel.com/docs/functions",
+      "https://vercel.com/docs/functions/streaming-functions",
+      "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+    ],
+    "aiProvider": "Direct Anthropic Claude API",
+    "sourceRepository": "GitHub if available",
+    "status": "READY: decorative eyebrow boxes removed sitewide, including the shared Early preview header label. Ticket information remains first; colorful creator dashboard is at the bottom.",
+    "project": "ticketnest",
+    "projectId": "prj_mKOovqvOBjKSI72gPPRA9Ip1iGES",
+    "deploymentId": "dpl_BYsBjutoNAhsLhorRTM4mbMf5kvf",
+    "deploymentUrl": "https://ticketnest-psi.vercel.app",
+    "gitLinked": false
+  },
+  "aiBudget": {
+    "status": "Three successful real Claude responses verified across activation and visual refinements. Exact billed amount not inspected. USD10 total allowance unchanged; automatic refills remain off.",
+    "approvedByOwner": true,
+    "maximumTotal": 10,
+    "currency": "USD",
+    "spentByThisTask": null,
+    "providerSelected": true,
+    "providerAccountAvailable": true,
+    "scope": "Up to USD 10 total direct Claude API testing, funded by owner-confirmed prepaid credits; automatic refills disabled.",
+    "requirements": [
+      "Use application usage limits and available provider spending controls.",
+      "Do not claim a provider budget alert is a guaranteed spending cap.",
+      "Stop AI requests when the application allowance is exhausted.",
+      "No credentials in the browser or source repository."
+    ],
+    "connectionApproach": "Direct AI service first; CLIProxyAPI is an optional final integration.",
+    "provider": "Anthropic Claude API",
+    "paidTopUpsAllowed": false,
+    "paidUpgradesAllowed": false,
+    "freeTierConfirmed": false
+  },
+  "design": {
+    "status": "approved",
+    "formRule": "Restrained rounded panels and visible labels",
+    "layout": "Scene and conversation inside one persistent expanding bubble; bounded stack on phones.",
+    "direction": "Clear workspace with violet, peach, and lime refinement",
+    "compositionRule": "Conversation and listing output share the main workspace",
+    "motionRule": "Measured bubble expansion, local 220-280 ms fact transitions, worker-based face processing, reduced-motion fallback.",
+    "refinement": "Owner requested more colour and interactive homepage creation. Added event-type cards and direct title, price, and capacity editing with immediate preview updates.",
+    "storyScene": {
+      "status": "Quick ticket copy, per-answer picture additions and local visible-feature avatar capture deployed and verified within documented device limits.",
+      "initial": "Person with clickable idea bubble",
+      "entry": "Idea bubble expands; choose voice or typing; conversation and scene inside",
+      "evolution": "Automatic from confirmed draft",
+      "example": "Halloween guided walking tour; guide plus 20 people for capacity 20, ticket props reflect delivery format",
+      "requirements": [
+        "Futuristic appearance",
+        "Fast interaction",
+        "Smooth motion",
+        "Illustrations reflect draft facts without implying tickets sold"
+      ],
+      "pending": [],
+      "style": "Lightweight dimensional 3D-style illustration with simplified motion fallback",
+      "character": "Only the main avatar adapts using local hair/skin styling and bounded face proportions; guests stay unchanged. No displayed photo or demographic inference.",
+      "appearanceMenus": false,
+      "camera": "Deliberate bubble click requests permission; hidden one-frame capture stops tracks before local worker analysis. No photo display/upload/storage. Browser model and public fixture verified; physical webcam capture not granted during tests.",
+      "asset": "Original articulated SVG characters and setting; historical raster asset retained but unused by scene.",
+      "verified": [
+        "Idea bubble opens voice/type entry",
+        "Expanded bubble contains scene, conversation and review",
+        "Halloween title changes scene automatically",
+        "Capacity 20 renders 20 audience figures plus host",
+        "Capacity 100 keeps 20 representative guests and labels actual capacity",
+        "Digital format changes guest ticket props",
+        "Desktop no horizontal overflow; mobile clientWidth=scrollWidth=375",
+        "Design review v2 completed; final preview values fixed to light text and computed browser colors verified.",
+        "Final deployment READY; desktop header navigation into bubble choice verified.",
+        "2026-10-18: visual rebuild, real Claude response, phone composition, ticket props, saved draft and responsive chat anchoring verified; see frontend/homepage-verification-v1.md.",
+        "2026-10-18: MediaPipe worker initialized in browser; public portrait produced gray short-hair styling and cleared canvas. Camera entry and Skip worked without blocking setup.",
+        "2026-10-18: every accepted response adds a bounded interactive illustrated note; real Claude response added Adult and Child ticket types with capacity20 and digital tickets retained; desktop/mobile screenshots and zero image nodes verified."
+      ]
+    },
+    "frontpageAudit": {
+      "status": "Visual and quick-ticket refinement deployed and verified; physical camera/keyboard/frame-rate checks remain documented.",
+      "date": "2026-10-18",
+      "scope": "Initial front page, expanding bubble, scene and conversation states, desktop and mobile",
+      "implementationChanged": true
+    }
+  },
+  "implementation": {
+    "unverified": [
+      "Physical microphone and camera",
+      "Physical mobile keyboard and low-end frame rate",
+      "Hosted email delivery/login, real payments, admission issuance and referral payouts"
+    ],
+    "features": [
+      "Editable live listing preview",
+      "Device-local draft restoration",
+      "Individual and weekly activity dates",
+      "Browser speech controls, not microphone-tested",
+      "Email-code authentication and publication adapters",
+      "Explicit local organiser account and disk-persisted event listings and ticket types",
+      "Direct Claude API with structured event and ticket-type drafts; live responses verified",
+      "Expanding idea bubble with original 3D-style character and reactive event illustrations",
+      "Permission-based automatic one-frame local capture adapts main avatar visible styling; no photo display/upload/persistence or sensitive inference",
+      "Interactive spoken questions with automatic finalized-answer submission, next-question playback, bounded listening, pause/resume and typing fallback",
+      "Start voice chat immediately opens microphone; dedicated voice stage with silence-based automatic sending, spoken replies, automatic listening and Talk now interruption"
+    ],
+    "status": "READY: saved light/dark option; description-optional anonymous publication redirects to public listing after persistence; no draft download controls.",
+    "spentUsd": null,
+    "verified": [
+      "Production build passed",
+      "Browser: edit weekly activity, restore after reload, login unavailable state",
+      "Mobile 390px: no horizontal overflow",
+      "Final production build passed outside filesystem sandbox",
+      "Actual local endpoint check passed: homepage, three disconnected services, three origin rejections",
+      "Backend isolated route verification passed; all external fetches intercepted",
+      "Mobile revision: clientWidth and scrollWidth both375; no horizontal overflow",
+      "45 actual PostgreSQL checks passed in a disposable local engine",
+      "24 unit checks passed",
+      "Integrated production build passed",
+      "Browser: two ticket types, minimum price, total quantity and reload persistence verified",
+      "Local production HTTP flow passed: sign-in, save event and ticket type, read listing, logout revocation, foreign origin rejection, AI disabled.",
+      "Two real disk PostgreSQL tests passed including reopen persistence.",
+      "Production build passed with local backend.",
+      "Vercel API reports deployment READY. Protected page runtime fetch blocked by automatic approval review.",
+      "Gateway server identity connected in production; credit check returned zero and prevented completion. No model output verified.",
+      "15 mocked Claude adapter and route tests passed; publication route rehearsal passed.",
+      "Claude-ready deployment READY and browser shows agent unavailable as expected without activation credentials.",
+      "Story scene production build READY; browser entry/expand/type flow and dynamic capacity/theme/format checks passed.",
+      "Ticket format persistence and restart passed in local PostgreSQL tests.",
+      "2026-10-18: real Claude response populated Boston Halloween tour, 2026-10-31 19:00, USD15, capacity20, digital tickets and90 minutes; asked one missing-description question. No publication.",
+      "Visual rebuild: 73 existing plus 7 scene tests passed, 45 PostgreSQL checks passed, final production build and live browser checks passed.",
+      "Quick-ticket refinement: complete95-test check sequence and45 database checks passed; updated16 avatar tests and11 scene tests passed; final production build passed.",
+      "Browser real local model/public-image detection, image disposal, permission-request cancellation, live ticket-type answer, responsive latest-reply layout and zero photo DOM nodes verified.",
+      "Interactive voice:112 unit/integration tests,45 PostgreSQL import checks and backend adapter checks passed; final production build passed. Browser fixture verified2 spoken turns with one simulated submission per answer, scene updates, pause/resume, no-answer pause and typing focus.390px phone review passed. Production dpl_FV4ETdCf9FGHo9N8PjDKSkyDXNFp READY; live Talk entry, latest edit question and immediate pause verified without microphone capture.",
+      "Immediate voice v2:114 tests,45 actual PostgreSQL checks, backend checks and final build passed. Fixture verified synchronous microphone-first entry/resume, silence submission, Talk now interruption and automatic return to listening. Production dpl_HkM3v853nnVrrD6ZSTZL3NBqsFqy READY; live browser confirms new Start voice chat entry. No physical microphone or paid AI request used in verification.",
+      "Selected purple logo concept1 applied to header/footer; exact original PNG retained. Desktop/mobile visual review and production build passed. Production dpl_DBfhwWGPiasUpUPnXZHJfBrK19A8 READY; live browser confirms both logo images loaded."
+    ],
+    "frontPageSetup": {
+      "status": "Deployed and browser verified",
+      "scope": "Front-page setup and draft preview only",
+      "date": "2026-10-18",
+      "deploymentId": "dpl_A7pVcy4vYee59Z5DBqaQ8nMyzJmK",
+      "url": "https://ticketnest-psi.vercel.app/",
+      "contract": "contract/front-page-setup-v2.md",
+      "verification": "frontend/front-page-setup-verification-v1.md",
+      "review": "design/front-page-setup-review-v1.md",
+      "automatedTestsPassed": 127,
+      "databaseChecksPassed": 45,
+      "build": "Passed locally and Vercel READY",
+      "limits": [
+        "No live payment, confirmation delivery, ticket issuance or referral payouts",
+        "No hosted publication of new setup fields",
+        "Exact coordinate links; no automatic address geocoding or bidirectional map sync",
+        "New Claude setup patches tested with mocked provider responses; no paid AI test this release"
+      ]
+    },
+    "straplines": {
+      "briefVersion": 54,
+      "status": "Deployed and browser verified",
+      "deploymentId": "dpl_7irAuASVSVs6VmLCnyUwzCRVjVxe",
+      "url": "https://ticketnest-psi.vercel.app/",
+      "verification": "frontend/straplines-verification-v1.md"
+    },
+    "bubbleLabel": {
+      "briefVersion": 55,
+      "status": "Deployed and browser verified",
+      "deploymentId": "dpl_GfivsYafWKnJ7t6pSytBsGJ2jGWv",
+      "url": "https://ticketnest-psi.vercel.app/",
+      "verification": "frontend/bubble-label-verification-v1.md"
+    },
+    "voiceRepair": {
+      "requested": "Start speaking promptly with Fable and stop unexplained pauses",
+      "scope": "Claude conversation plus OpenAI Fable speech, resilient browser speech recognition",
+      "credentialStatus": "Claude configured. OpenAI key and Fable enable flag absent; no environment changes made.",
+      "budget": "Existing USD10 total demonstration ceiling; no new spend limit authorized",
+      "status": "Deployed and browser verified; physical audio and Fable not tested",
+      "briefVersion": 57,
+      "deploymentId": "dpl_HTUG21BJYiHkzt94FLZdx7GUwtap",
+      "url": "https://ticketnest-psi.vercel.app/",
+      "automatedTestsPassed": 153,
+      "databaseChecksPassed": 45,
+      "verification": "frontend/voice-repair-verification-v1.md",
+      "contract": "contract/voice-fable-v1.md",
+      "review": "backend/voice-repair-review-v1.md",
+      "paidRequests": 0
+    },
+    "conversationReliability": {
+      "status": "Deployed and verified with real Claude conversations",
+      "scope": "All-field partial updates, retained partial facts and conversational validation; preserve valid draft and continuous voice",
+      "previousDateReproduction": "frontend/date-recovery-verification-v1.md",
+      "budget": "Existing USD10 total Claude demonstration allowance; no new spending limit or paid retry authorized",
+      "briefVersion": 59,
+      "model": "claude-sonnet-5-5",
+      "deploymentId": "dpl_6eaMzwK57vtWq1XfKxcKWHxa38zz",
+      "url": "https://ticketnest-psi.vercel.app/",
+      "contract": "contract/conversation-patches-v2.md",
+      "domainContract": "contract/conversation-patches-v1.md",
+      "verification": "frontend/conversation-reliability-verification-v1.md",
+      "reviews": [
+        "backend/conversation-reliability-review-v1.md",
+        "backend/conversation-provider-review-v1.md"
+      ],
+      "fullRegressionTestsPassed": 192,
+      "finalProviderDomainTestsPassed": 97,
+      "databaseChecksPassed": 45,
+      "liveFixtureRequestsPassed": 3,
+      "liveEvidence": "evidence/live-conversation-v1.json",
+      "build": "Passed locally and Vercel READY",
+      "limitations": [
+        "Physical microphone and device audio quality not tested by this release",
+        "Fable remains disabled; no separate OpenAI key",
+        "No model is guaranteed to interpret every utterance correctly; validated partial-change recovery handles rejected fields",
+        "Exact paid test charge not returned by the app; no purchase or refill performed"
+      ],
+      "supersededDeployment": "dpl_4ktSqKZ1amV2RqNePFt44oKcwnof was restored to prior release before paid tests because provider schema exceeded documented limits"
+    },
+    "ticketCategoryRecovery": {
+      "status": "verified-live",
+      "briefVersion": 60,
+      "ownerIntent": "Total10 shared across kids/adults; keep categories unchanged when owner says nothing",
+      "scope": "Inventory-mode patch support, stable category preservation and pending question resolution",
+      "deploymentId": "dpl_12ry4CCYpQZWdj2n76kDvmZYK6mc",
+      "evidence": "frontend/ticket-category-verification-v1.md",
+      "liveSmoke": "evidence/live-shared-inventory-v1.json",
+      "paidRequests": 2
+    },
+    "anonymousDemoPublishing": {
+      "status": "verified-live",
+      "scope": "After inventory conversation fix: remove login requirement; Review then Publish public demo listing; allow visitors simulated ticket purchases. No real charges, PII, admission validity or payout claims. Free Vercel infrastructure only.",
+      "ownerRequest": "once that is done, remove the login requirement, just review and publish. Once published, make a listing and allow people to demo buy tickets",
+      "deploymentId": "dpl_AUQhyK1a76Q81fngHBH3AHAetnHr",
+      "contract": [
+        "contract/demo-publishing-v1.md",
+        "contract/demo-publishing-v2.md"
+      ],
+      "evidence": "frontend/demo-publishing-verification-v1.md",
+      "liveEvidence": "evidence/live-demo-publishing-v1.json",
+      "listingUrl": "https://ticketnest-psi.vercel.app/listing/54ce663c-d2c8-431b-87aa-6427a0309821",
+      "browserReceiptUrl": "https://ticketnest-psi.vercel.app/receipt/07649d83-8988-476a-9d6f-296f7bc08b96",
+      "storage": "Private Vercel Blob, connected by owner; SDK request-context authentication",
+      "limits": {
+        "listings": 20,
+        "receipts": 100
+      },
+      "fullTestsPassed": 230,
+      "actualDatabaseChecksPassed": 45,
+      "realPayments": false,
+      "admissionValidity": false
+    },
+    "heroCopy": {
+      "status": "verified-live",
+      "headline": "The ticket platform that isn’t ripping anyone off.",
+      "subtitle": [
+        "Keep 90%.",
+        "Pay with anything."
+      ],
+      "guestLine": [
+        "Your guests pay the ticket price.",
+        "Not a penny more."
+      ],
+      "remove": [
+        "Your ticket draft is ready to continue.",
+        "Allow one quick photo to adapt your avatar. The photo stays on this device and is discarded.",
+        "10% platform fee. Referral rewards come from your share. Payments are not connected. Available methods and processing fees are still to be confirmed."
+      ],
+      "scope": "Front-page copy hierarchy only. Preserve avatar permission flow, existing services and demo labels.",
+      "evidence": "frontend/hero-copy-verification-v2.md",
+      "deploymentId": "dpl_Ge3hW71zcaWR7h2v2QcWgrgpjrsp"
+    },
+    "theme": {
+      "status": "verified-live",
+      "scope": "Add a light/dark mode option, remember visitor preference, keep purple brand and existing dark homepage default. Apply readable colors to homepage and expanded conversation/setup/review. Preserve all services.",
+      "evidence": "frontend/light-publish-verification-v1.md",
+      "preference": "clickatick-theme; dark default; light/dark persisted",
+      "screenshots": [
+        "evidence/light-mode-desktop-v1.png",
+        "evidence/light-mode-mobile-v1.png"
+      ]
+    },
+    "publishFlowRefinement": {
+      "status": "verified-live",
+      "scope": "Remove Download draft from creation UI, make event description optional for publishing, and navigate directly to the public listing page after successful publication. Preserve demo confirmation downloads and saved local drafts.",
+      "contract": "contract/demo-publishing-v3.md",
+      "evidence": "frontend/light-publish-verification-v1.md",
+      "liveEvidence": "evidence/live-optional-description-v1.json",
+      "descriptionOptional": true,
+      "redirectAfterSuccess": true,
+      "draftDownloadRemoved": true
+    },
+    "listingMarketing": {
+      "status": "verified-live",
+      "scope": "Owner requests per-listing creator marketing after publication, adapted from the supplied Social Media Manager, Performance Marketer, Content Creator Design and Content Creator Video prompts. Prepare the ordered experience first. This is event promotion, not a clickatick campaign.",
+      "plan": "marketing/listing-workspace-plan-v1.md",
+      "contract": "contract/marketing-v1.md",
+      "dashboardPreview": "Owner additionally requests inert marketing dashboard controls on the creator event page: comprehensive social sharing labels, image/video generation, built-in specialist agents and add-your-own-agent placeholders. Clearly label as preview, no actual sharing, generation, connection or uploads. User prioritizes quick completion. Preserve existing functional marketing workspace separately.",
+      "approval": "Owner said do it after the ordered marketing plan. Implement private accountless workspace, post/poster drafts, scripts/storyboards, ad-plan drafts, version review/approval and exports. Optional Claude text refinement uses the existing authorized API account and USD10 total limit, without automatic requests, new providers, posting or ad spending.",
+      "constraints": "Reuse published listing facts. Preserve anonymous creation and public guest view. Design server-verified creator access before shared marketing persistence. No automatic posting, ad spend, new AI budget or unverified image/video generation.",
+      "deploymentId": "dpl_BYsBjutoNAhsLhorRTM4mbMf5kvf",
+      "evidence": "frontend/marketing-dashboard-color-v1.md",
+      "dashboardPreviewStatus": "deployed-ready-colorful-clickable-no-action",
+      "dashboardControls": 34
+    },
+    "bottomReview": {
+      "status": "verified-live",
+      "scope": "Move primary Review control to the bottom of the ticket creation pane, preserve chat/manual/voice review behavior and themes; add a purple clickatick ticket/cursor favicon.",
+      "mobileScope": "Owner also requested mobile friendly: verify and improve homepage, bubble, chat/manual forms and bottom Review at 390px and small 360px; preserve publishing and theme behavior.",
+      "evidence": "frontend/marketing-live-verification-v1.md",
+      "screenshot": "evidence/mobile-bottom-review-v1.png"
+    }
+  },
+  "teamWorkflow": {
+    "roleDirectory": "team/roles",
+    "reports": [
+      "research/positioning-options-v1.md",
+      "design/design-system-v1.md",
+      "design/review-v1.md",
+      "contract/api-v2.md",
+      "backend/review-v2.md",
+      "frontend/review-v1.md",
+      "design/story-scene-v2.md",
+      "design/story-scene-review-v1.md",
+      "contract/story-api-v1.md",
+      "backend/story-review-v1.md",
+      "design/story-scene-review-v2.md",
+      "frontend/story-workspace-v1.md",
+      "backend/activation-fix-v3.md",
+      "backend/activation-verification-v2.md",
+      "design/homepage-visual-audit-v1.md",
+      "frontend/homepage-interaction-audit-v1.md",
+      "contract/scene-workspace-v2.md",
+      "design/homepage-rebuild-v1.md",
+      "design/homepage-rebuild-review-v2.md",
+      "design/homepage-rebuild-review-v3.md",
+      "frontend/scene-rebuild-v1.md",
+      "frontend/bubble-rebuild-v1.md",
+      "frontend/bubble-rebuild-review-v1.md",
+      "frontend/chat-scroll-review-v1.md",
+      "frontend/homepage-verification-v1.md",
+      "contract/scene-avatar-v3.md",
+      "design/quick-tickets-v1.md",
+      "design/quick-tickets-review-v3.md",
+      "frontend/avatar-capture-v1.md",
+      "frontend/avatar-capture-review-v1.md",
+      "frontend/avatar-capture-review-v2.md",
+      "frontend/answer-scene-v1.md",
+      "frontend/answer-scene-review-v1.md",
+      "frontend/quick-ticket-verification-v1.md",
+      "contract/conversation-patches-v1.md",
+      "contract/conversation-patches-v2.md",
+      "research/conversation-model-v1.md",
+      "backend/conversation-reliability-v3.md",
+      "backend/conversation-reliability-review-v1.md",
+      "backend/conversation-provider-review-v1.md",
+      "frontend/conversation-reliability-v1.md",
+      "frontend/conversation-reliability-verification-v1.md"
+    ],
+    "specialistRoles": [
+      "research",
+      "designer",
+      "frontend",
+      "backend",
+      "social-media-manager",
+      "performance-marketer",
+      "content-creator-design",
+      "content-creator-video"
+    ],
+    "sharedDesignFileComparison": "54 of 54 supplied files match the local shared design library",
+    "historicalGap": "API contract v1 was retrospective. Contract v2 was agreed before its corresponding backend implementation.",
+    "ruleFile": "team/shared-rules-v1.md",
+    "ownerInstruction": "Use the supplied eight specialist role instructions for each relevant step.",
+    "version": 1,
+    "mainRole": "Product Manager",
+    "marketingStatus": "Per-event marketing workspace and dashboard preview implemented; no clickatick campaign, social posting or ad spend."
+  },
+  "backendIntegration": {
+    "source": "Owner-provided ticketing archive",
+    "publicationFunction": "publish_event_draft",
+    "excluded": [
+      "Checkout",
+      "Payments",
+      "Orders",
+      "Admission ticket issuance"
+    ],
+    "liveAI": "Direct Claude API working in deployed browser, including multiple ticket types.",
+    "localDatabaseChecksPassed": 45,
+    "debranding": "No original vendor branding, tagger, gateway, or hosted project mapping remains in imported source",
+    "sourceEnvironmentReused": false,
+    "referenceAppBuild": "Not verified; source retained as reference only",
+    "hostedDatabaseCreated": false,
+    "sourceDirectory": "../../../../imported-ticketing",
+    "unitChecksPassed": 24,
+    "databaseChoice": "Embedded local PostgreSQL through PGlite for local operation",
+    "scope": [
+      "Organizers",
+      "Events",
+      "Ticket types",
+      "Dated occurrences"
+    ],
+    "publicProjection": "published_events",
+    "hostedDemoStore": "Private Vercel Blob; anonymous immutable demo listing/receipt namespace separate from legacy authenticated database."
+  }
+}

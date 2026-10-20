@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {emptyListing} from '../lib/listing.mjs';
+const base=process.argv[2]||'http://127.0.0.1:3021';
+const request=(path,body,cookie)=>fetch(base+path,{method:'POST',headers:{Origin:base,'Content-Type':'application/json',...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(body)});
+assert.equal((await fetch(base)).status,200);
+assert.equal((await request('/api/chat',{})).status,503);
+assert.equal((await request('/api/listings',{})).status,401);
+const auth=await request('/api/auth',{local:true});assert.equal(auth.status,200);assert.equal((await auth.json()).signedIn,true);
+const cookie=auth.headers.get('set-cookie').split(';')[0];
+const id='eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee';
+const draft={...emptyListing(),title:'Local verification workshop',description:'Local test listing for verifying saved ticket types.',location:'Test studio, Phoenix',timezone:'America/Phoenix',price:'25',capacity:'15',schedule:{kind:'dates',dates:['2026-12-10T10:00'],start:'',until:'',time:'',weekdays:[]},ticketTiers:[{id:'ffffffff-ffff-4fff-8fff-ffffffffffff',name:'Standard test ticket',description:'Local verification',price:'25',quantity:'15'}]};
+const saved=await request('/api/listings',{id,draft},cookie);assert.equal(saved.status,200,await saved.clone().text());const listing=await saved.json();
+const page=await fetch(base+listing.url);assert.equal(page.status,200);const html=await page.text();assert.ok(html.includes(draft.title));assert.ok(html.includes('Standard test ticket'));
+const foreign=await fetch(base+'/api/auth',{method:'POST',headers:{Origin:'https://example.com','Content-Type':'application/json'},body:JSON.stringify({local:true})});assert.equal(foreign.status,403);
+const out=await fetch(base+'/api/auth',{method:'DELETE',headers:{Origin:base,Cookie:cookie}});assert.equal(out.status,200);
+assert.equal((await request('/api/listings',{id,draft},cookie)).status,401);
+console.log('Local HTTP flow passed: homepage, AI disabled, account, saved event and ticket type, listing read, foreign origin rejection, logout revocation.');

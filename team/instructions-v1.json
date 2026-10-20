@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "source": "Owner-supplied Ship AI Claude team",
+  "hostAdaptation": "Codex main session is Product Manager; collaboration agents implement specialist roles; actual available tools replace Claude-specific tool names.",
+  "sharedBriefVersion": 9,
+  "preserveApprovals": true,
+  "roles": [
+    {
+      "role": "backend",
+      "path": "team/roles/backend.md",
+      "sha256": "f82957fb2807f1038ca3e2e42544b97e5165b8024e795910d3d05c03d47046d1"
+    },
+    {
+      "role": "content-creator-design",
+      "path": "team/roles/content-creator-design.md",
+      "sha256": "a3a6a589d9553da12f2233307734ef2a93c11101fc8ea65f4d5730991a4d9381"
+    },
+    {
+      "role": "content-creator-video",
+      "path": "team/roles/content-creator-video.md",
+      "sha256": "c003f031dc69e9374326387a94775ebf96bef55bb973c0f4dd29da2bb78a2e81"
+    },
+    {
+      "role": "designer",
+      "path": "team/roles/designer.md",
+      "sha256": "a075cf59cc5d2e23a6743d0353576a6c4ae6e34cdec3a5457c7f631514a9f044"
+    },
+    {
+      "role": "frontend",
+      "path": "team/roles/frontend.md",
+      "sha256": "c7815e4d95186906090d1409333d5f1c067dcc92f4e6c1858b5a83856d76f0f4"
+    },
+    {
+      "role": "performance-marketer",
+      "path": "team/roles/performance-marketer.md",
+      "sha256": "159cfbed94bb5ef9d26d8814c6ec415b3c8295b9c6f4e98aa96149bc69500c67"
+    },
+    {
+      "role": "research",
+      "path": "team/roles/research.md",
+      "sha256": "b45a6f1a07c3118a9b4876ad475376618fdab5e7656ea103655badc04b0ec085"
+    },
+    {
+      "role": "social-media-manager",
+      "path": "team/roles/social-media-manager.md",
+      "sha256": "b0a1473cd5f2bb13aed0654d88341af8b8499cb2d2a02ca292335208eae6032a"
+    }
+  ],
+  "activeStep": "Design and backend review of local implementation",
+  "marketingStatus": "Deferred until owner approves working site",
+  "limitations": [
+    "Account connections remain unconfigured",
+    "Frontend and Backend contract is retrospective for existing code; agree future changes before implementation"
+  ]
+}

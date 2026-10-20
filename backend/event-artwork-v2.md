@@ -1,0 +1,7 @@
+# Event artwork backend handoff v2
+
+This addendum to `backend/event-artwork-v1.md` closes the total image-attempt budget gap found during final review. Brief `brief/project.json` v77; agreed interface remains `contract/event-artwork-v2.md`.
+
+Before any provider call, the backend now claims one of 20 global private Blob slots with create-only semantics. A listing must first pass creator authorization, explicit feature/credit gates, a fresh positive `/v1/credits` response, and its own one-attempt claim. Concurrent requests from different listings cannot exceed 20 provider calls; after the cap, the route returns 429 and retains the scene image. Successful saved results remain replayable even when the global cap is full. Unknown provider outcomes consume both claims, preventing retry spending.
+
+`evidence/event-artwork-backend-tests-v2.txt` records 26 focused tests passing, including 23 concurrent listings with exactly 20 successful provider stubs, three capped requests, and no extra provider call on replay. No live Gateway request was made. [Vercel's model page](https://vercel.com/ai-gateway/models/flux-3-image-klein) currently lists $0.009 for the lowest image tier, but provider prices and selected image dimensions can change. The fixed request ceiling is a backstop; the account credit balance, top-up settings, and the owner's USD 10 total test allowance remain the final spending controls. Do not enable generation until a read-only balance check confirms credit and the PM has verified account-level limits.
