@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/conditional-neon-migrate.mjs && next build",
     "start": "next start",
     "configure": "node scripts/configure.mjs",
     "check": "node scripts/configure.mjs --check && node --test tests/*.test.mjs && node backend/verify-import-v2.mjs && node backend/verify-v2.mjs",
