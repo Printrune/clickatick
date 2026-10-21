@@ -41,6 +41,7 @@ globalThis.fetch = async (url, options) => {
 };
 let route = await readFile(new URL('../app/api/listings/route.js', import.meta.url), 'utf8');
 route = route.replace("'../../../lib/listing.mjs'", JSON.stringify(new URL('../lib/listing.mjs', import.meta.url).href))
+  .replace("'../../../lib/creator-neon-cutover.mjs'", JSON.stringify(new URL('../lib/creator-neon-cutover.mjs', import.meta.url).href))
   .replace("'../../../lib/services'", JSON.stringify(servicesURL))
   .replace("'../../../lib/event-system.mjs'", JSON.stringify(new URL('../lib/event-system.mjs',import.meta.url).href))
   .replace("'../../../lib/local-store.mjs'",localStoreURL);
