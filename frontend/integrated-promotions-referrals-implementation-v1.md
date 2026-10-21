@@ -1,0 +1,16 @@
+# Integrated promotions and referrals frontend implementation v1
+
+Date: 2026-10-21. Role: Frontend Engineer. Brief: `brief/project.json` v107. Interface authority: `contract/integrated-promotions-referrals-v3.md`, accepted in `frontend/integrated-promotions-referrals-v3-acceptance-v1.md`; Backend confirmed the same DTOs and server gates through the PM before this implementation. Read `team/shared-rules-v1.md`, `team/roles/frontend.md`, `AGENTS.md`, the actual frontend-design, intentional-ui-design, YC Interface Craft, and workshop-owner-language skills, and Next.js server/client documentation.
+
+## Implemented
+
+- The public event page passes server-side capability flags to the client. Both flags also require `PUBLISHED_REVISIONS_ENABLED=true`. They are false by default. When enabled, the buyer can enter one promotion code and one referral code. `?ref=CODE` fills only the referral input. The quote request sends code strings or null; when both features are off, it preserves the old request shape so the A4 path remains compatible. Code errors using `fields[].path` appear beside the corresponding input. No browser amount or fee calculation is sent to the server.
+- The demo checkout displays the server's original subtotal, discount, and discounted subtotal. It handles `code_changed` reads and `QUOTE_CHANGED` checkout responses by keeping the historical selection visible and directing the guest back to the event for a fresh quote. The demo receipt uses immutable server pricing and terms; old receipts without pricing retain the prior subtotal display.
+- The published-event organizer page shows gated code management. Owners and editors can create inactive promotion and referral drafts; editors can edit inactive drafts. Owners can review, activate, or deactivate codes. Active codes cannot be edited in the UI until deactivated. Promotions support percentage or fixed ticket discounts, event or brand scope, minimum original subtotal, informational future real-use limit, and optional expiry. Referral codes are event-scoped. The interface does not present demo attribution as a payable customer balance.
+- Styles keep code fields and the server price breakdown ahead of the checkout action on narrow screens. Existing purple design and route layout remain unchanged.
+
+## Checks and release boundary
+
+`node --test tests/promotions-ui.test.mjs tests/event-date-display.test.mjs` passed 4/4 tests. The new tests check legacy quote-body compatibility with both gates off, nullable v3 code fields, exact inline error mapping, and new-versus-old receipt prices using server cents. `git diff --check` passed. The PM owns the production build and browser verification; neither was claimed here. API, database migration, Clerk, and Neon integration are separate Backend and release tasks. The feature flags remain off and this work creates no payment, admission ticket, redemption, referral earning, or payout.
+
+Before enabling either flag, verify the A6 write dispatcher, migration, private owner/editor permission behavior, quote-to-receipt flow with a discount and referral, invalid-code inline feedback, code-change recovery, mobile display, and zero-charge wording in a connected preview. Real-money rules remain unresolved.

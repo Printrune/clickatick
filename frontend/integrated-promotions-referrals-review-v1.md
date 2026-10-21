@@ -1,0 +1,16 @@
+# Integrated promotions and referrals v2, Frontend review
+
+Date: 2026-10-21. Brief: `brief/project.json` v107. Reviewed `contract/integrated-promotions-referrals-v2.md`, `research/lovable-promotions-referrals-v1.md`, Backend's v1 review and v2 acceptance, and current `PublicEventExperience`, `DemoQuoteCheckout`, `PublicDemoReceipt`, and organizer draft controls. This is prospective review. No application code changed.
+
+**Agree with the zero-charge product boundary and pricing DTO.** The server calculates cents from the published event version. A promotion lowers the ticket price; a referral records attribution but does not reduce it. The 10% fee and organizer-funded referral example use the discounted price. A quote freezes code terms, pricing and the event version. A receipt preserves that snapshot, with $0 charged and no admission or payable reward. This avoids importing the Lovable client's untrusted price and checkout calculations.
+
+Two interface details need to be explicit before Frontend implements the buyer form:
+
+1. **Code field errors.** A quote request with an unknown, expired, inactive, wrong-event, below-minimum or malformed nonempty code should return a 422 `fields` entry with `path:"promoCode"` or `path:"referralCode"`. The client can then put the message beside the correct input. A global error may accompany it, but a missing field path would make the contract's inline feedback ambiguous. A changed quote remains the distinct read state `code_changed` and checkout 409 `QUOTE_CHANGED`; that is a recovery instruction, not a field-validation error.
+2. **Flag-off code submission.** The Backend acceptance notes that a submitted nonempty code while its promotion or referral flag is off must return an explicit capability error. Define it as 503 in the standard `{data:null,error:{code,message}}` envelope, with `code:"PROMOTIONS_UNAVAILABLE"` or `code:"REFERRALS_UNAVAILABLE"`. Empty, whitespace, missing and null fields remain canonical null. The public event UI hides disabled inputs, but cached clients and direct requests must not receive a quote that silently ignores a code.
+
+The current A4/A6 buyer pages require an atomic caller update with the server: send both code keys, accept `pricing` and `terms`, show original subtotal, discount, discounted subtotal and $0 charged, and add `code_changed` recovery to checkout. A `?ref=CODE` link should prefill only the referral field. It must never calculate a fee, infer a beneficiary, or imply a paid sale or earned reward. The current receipt's `ticketSubtotalMinor` line needs a distinct discount breakdown when `pricing` exists, while old receipts retain their original display.
+
+Organizer UI can use the private list/create/patch/activate routes as specified. Editor-created codes remain inactive until an owner activates them; no UI should show an earnings counter or call the demo maximum-use value a remaining-use count. Both public controls and private actions stay hidden behind the default-off flags and the A6 write-path gate until connected verification.
+
+With the two error details added, Frontend can agree to v2 without another owner product decision. Backend's focused routing test does not establish a connected quote-to-receipt journey; activation remains pending.

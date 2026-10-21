@@ -23,7 +23,7 @@ try{
  const hasLedger=tables.includes('clickatick_schema_migrations');
  if(!hasLedger&&tables.length)throw new Error(`Public schema already has ${tables.length} tables without a migration ledger; inspect it manually.`);
  const files=(await readdir(directory)).filter(name=>/^\d{3}_.*\.sql$/.test(name)).sort();
- if(files.length!==7)throw new Error('Expected seven versioned migrations.');
+ if(files.length!==8||!files[7].startsWith('008_integrated_promotions_referrals'))throw new Error('Expected eight versioned migrations.');
  if(mode==='inspect'){
   const applied=hasLedger?(await client.query('SELECT filename,sha256 FROM clickatick_schema_migrations ORDER BY filename')).rows:[];
   process.stdout.write(JSON.stringify({mode,tables:tables.length,applied:applied.map(row=>row.filename),pending:files.filter(name=>!applied.some(row=>row.filename===name))})+'\n');
