@@ -1,0 +1,7 @@
+# PM handoff 014: creator-to-Neon cutover
+
+Date: 2026-10-21. Current brief: `brief/project.json` v105. Approved owner decisions are in that brief, including the legacy Blob demo listings' direct-link-only visibility. Shared rules: `team/shared-rules-v1.md`; specialist roles: `team/roles/`. Frontend accepted the prospective `contract/creator-neon-cutover-v2.md` in `frontend/creator-neon-cutover-v2-review-v1.md` before implementation.
+
+Implement the agreed dual-mode cutover behind `CREATOR_NEON_CUTOVER_ENABLED=false`. Backend owns the old writer closures, server gate and neutral dependency cleanup. Frontend owns the creator handoff, eligible owner-brand choice, canonical catalog with honest cursor/loaded-only search, and historical read-only UI. Keep voice/chat, local draft recovery, existing direct links, and the $0 no-admission demo. Neither specialist may enable the gate, claim connected Clerk/Neon/Blob, or change the API shape unilaterally. Communicate interface changes before making them.
+
+Backend output: `backend/creator-neon-cutover-implementation-v1.md`. Frontend output: `frontend/creator-neon-cutover-implementation-v1.md`. Each report must name changed files, targeted verification, and remaining connected-service gates. PM will run combined tests, production build and browser review. Public activation waits for authenticated, media, publication, catalog and buyer-demo verification; Vercel team access is pending.

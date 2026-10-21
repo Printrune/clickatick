@@ -4,6 +4,7 @@
 :root[data-theme] body{background-color:var(--theme-bg);color:var(--theme-ink)}
 :root[data-theme] .site-nav,:root[data-theme] .site-footer{color:var(--theme-muted);border-color:var(--theme-line);background:transparent}
 :root[data-theme] .site-nav a,:root[data-theme] .site-footer a{color:var(--theme-ink)}
+@media(max-width:680px){.site-nav{flex-wrap:wrap;gap:2px 12px}.nav-actions{flex-wrap:wrap;justify-content:flex-end;margin-left:auto}}
 :root[data-theme] .wordmark small{color:var(--theme-muted);border-color:var(--theme-line)}
 .nav-actions{display:flex;align-items:center;gap:20px;flex-shrink:0}.site-nav .nav-create-link{font-size:13px;text-decoration:none;font-weight:600;white-space:nowrap}
 .site-nav .nav-create-link{display:inline-flex;align-items:center;min-height:44px}

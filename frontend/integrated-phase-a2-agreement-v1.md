@@ -1,0 +1,11 @@
+# Frontend agreement — integrated Phase A2 v2
+
+20 October 2026. Brief `brief/project.json` v93. I reviewed `contract/integrated-phase-a2-v2.md` against `frontend/integrated-phase-a2-review-v1.md`, the current `/creator` draft shape, and A1 dashboard/auth boundaries. Frontend role, shared rules and relevant UI/auth skill files were read in the preceding frontend rounds.
+
+**Agreement:** Frontend accepts Phase A2 v2 as the contract for private brand drafts, creator import, and the private editor. The v1 blockers are resolved: exact local schedule strings, standalone/separate address mapping, tier quantity authority, blank ticket format, image recovery, explicit browser routes, pin invalidation, stable asset preview URL, body/seat/media bounds, and honest map fallback. Backend owns migration/adapters/API, and Frontend owns dashboard list/editor, creator handoff and warning UI. Both must use the `{data,error}` envelope and brand-scoped route IDs. No event publication or live checkout follows from A2.
+
+**Scoped gate:** Media upload remains disabled until the Product Manager records an owner-approved retention/cleanup rule and Backend implements it. Frontend may display `LOCAL_IMAGE_UPLOAD_NEEDED` warnings and keep the original image on the device, but must not imply the photo was transferred. The Google Maps picker is conditional on a working client key and quota; coordinate entry and a truthful unavailable state are the fallback. A plain external map link is not treated as a selected pin.
+
+**First implementation sequence:** (1) real brand draft list/empty/error and `/events/new` plus `/events/{eventId}` shells; (2) manual draft create and versioned edit; (3) `/creator` Save to brand draft handoff through sign-in/brand choice and idempotent import; (4) map picker when configured, otherwise validated coordinates; (5) private media only after retention approval. Keep the existing public marketplace and Blob demo behavior during this phase.
+
+**Owner decisions remain:** staff editor rights, media retention, seated/accessible-seat policy, and published-edit review. These do not block owner-only private draft CRUD. Only the Product Manager asks the owner, one question at a time.

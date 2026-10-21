@@ -1,0 +1,15 @@
+# Frontend review: A3 media v5 image upload
+
+Date: 2026-10-21. Reviewed against `brief/project.json` v104, `contract/integrated-phase-a3-media-v5.md`, and the A3 v4 frontend. **Amend before agreement.** The direct private upload, 10 MB source cap, 5 MB normalized output cap, capability gates, and separate ready/attach steps fit the frontend.
+
+The v5 statement that both source and normalized Blob remain for a ready image until organizer deletion is not required by the recorded retention decision. The brief says to keep private event photos until explicit deletion. The verified normalized image is that retained photo; the raw source is a temporary processing input. Keeping both indefinitely doubles storage and reduces the shared free-plan allowance.
+
+Required contract amendment:
+
+1. Reserve `sourceBytes + 5,000,000` before upload and count **both** physical objects while normalization runs. Verify the normalized path, MIME, dimensions, metadata removal, size and checksum/ETag where available. Commit the ready asset and its normalized path before attempting source cleanup. No draft, public event, receipt or other durable reference may ever point to the source path. An existing source reference must block cleanup until migrated.
+2. After the ready commit, delete the raw source Blob through an idempotent cleanup claim. Confirm its absence with `head`/complete reconciliation before reducing the global ledger. The normalized ready Blob stays until explicit organizer deletion. A failed or uncertain source delete leaves its bytes charged and retries safely; it must not delete or downgrade the usable normalized image. A callback retry must not create a second normalized object.
+3. Replace the permanent two-Blob accounting rule. The steady-state ready image charges verified normalized bytes only. While cleanup is pending it charges both actual objects. Explicit organizer deletion removes the normalized Blob and any residual source, with reference checks and confirmed ledger release.
+4. Clarify the v5 asset fields: `sourceBytes` remains the declared upload size; `sourceStoredBytes` describes **currently retained** source bytes and becomes `0` only after confirmed cleanup; `storageBytes` is the sum of currently retained objects. The UI may show “source cleanup pending” only if a safe server field such as `sourceCleanupPending:boolean` is provided. It must not infer cleanup from `ready` alone.
+5. Keep the original device photo untouched. The source cleanup above applies only to the temporary server Blob. Extend tests to cover ready-image use during failed cleanup, exact shared usage before/after confirmed cleanup, callback/delete races, migrated source references, and no source bytes or URL in public responses.
+
+The current frontend can use the v4 asset list, capability and status DTOs while these backend rules are settled. The old multipart image path remains disabled. Once the amendment is agreed, Frontend can add direct-image transfer, processing progress, ready-only attachment and local image recovery without changing the public image contract.

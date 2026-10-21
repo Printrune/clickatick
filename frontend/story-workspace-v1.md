@@ -1,0 +1,9 @@
+# Interactive story workspace v1
+
+Owner-approved idea bubble, voice/type entry, automatic scene updates, neutral host and optional camera snapshot. Original generated character cached as public/scene-person.png. EventScene uses prepared layered settings; it does not generate new art on each answer or infer gender. Camera uses explicit getUserMedia permission, a single canvas frame held only in React state, and stops tracks on capture/cancel/unmount. No image/audio uploaded by camera feature. Browser speech can use browser vendor service, as labelled. Real camera/microphone use not physically tested.
+
+Verification: deployment dpl_ESYjeDTQtyqAGWNqj5QadGVoZCxJ READY; actual browser bubble entry/voice-type selection and typing flow, Halloween theme, capacity 20 gives host+20 guests, capacity 100 remains host+20 with representative label, digital tickets. Desktop innerWidth1280/client1265 scroll1265. Phone client375 scroll375. Both ticket formats accessible description corrected. Reduced motion disables animations in CSS; not measured on physical devices. Header navigation now opens bubble choice via start query.
+
+Evidence: workspace root ticketnest-idea-final.jpg, ticketnest-scene-final.jpg, ticketnest-scene-mobile-final.jpg. Claude API remains disabled; no live conversation/model result claimed. Manual editing updates the same canonical draft used by future chat responses. TicketFormat parser/schema/persistence verified separately in backend/story-review-v1.md.
+
+Final deployment dpl_E2yZqcuvcFHmiWwBq7FcdyeVuJDV READY. Review-v2 price/capacity/detail contrast fix applied. Browser computed price rgb(238,230,255), details rgb(201,205,224). Header navigation opens voice/type choice. Final screenshots use JPG extensions matching returned JPEG bytes. Browser viewport overrides reset.

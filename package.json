@@ -16,7 +16,9 @@
     "start:local": "node scripts/local.mjs"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.9.17",
     "@mediapipe/tasks-vision": "0.10.32",
+    "@neondatabase/serverless": "^1.2.0",
     "@vercel/blob": "^2.8.2",
     "ai": "^7.0.143",
     "next": "16.4.2",

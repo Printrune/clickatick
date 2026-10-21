@@ -1,0 +1,3 @@
+# PM handoff 013: A3 usage DTO retrospective review
+
+Date: 2026-10-21. The A3 v6 backend implementation returns `observedStoredBytes:null` until a trustworthy complete Blob scan exists, instead of the numeric value described in the prospective contract. This change was made during coding and is **retrospective evidence**, not a claim of prospective agreement. Frontend inspected the implemented shape in `frontend/integrated-phase-a3-v6-integration-review-v1.md` and accepted it: the media UI labels unknown capacity and keeps uploads disabled through server capabilities. The connected store and all-writer checks are still outstanding.

@@ -1,0 +1,13 @@
+# Frontend Phase A3 private media implementation
+
+21 October 2026. Built against `brief/project.json` v97, `contract/integrated-phase-a3-media-v2.md` and `handoffs/005-pm-phase-a3-media-agreement.md`. No Backend files or public publishing flow changed.
+
+The event editor now has a private image area for the business location, a separate event location when used, and the cover. It supports manual JPEG/PNG/WebP selection, 2 MiB browser hints, upload progress, same-brand gallery reuse, authenticated previews, and versioned attachment or detachment. Replacing a draft image leaves the old uploaded asset in the gallery. Deletion requires a separate confirmation; an image in use points to its brand-scoped draft references. A deletion left in progress stays visible with a retry action and its current version. Upload errors, quota errors, unavailable storage, and attachment failures remain visible without claiming the photo was lost.
+
+After a creator import succeeds, the browser records only the local draft ID and SHA-256 digests of each original inline image. It never stores another copy of image bytes in that association. Recovering a device image checks both the source ID and slot digest before converting it to a File. If either changed, the organizer must choose a file manually. A successful upload keeps its asset ID on the device until the versioned event PATCH attaches it; attachment retry uses that existing asset. Upload retry uses a stable key for the same file bytes, kind and description, including after the file is reselected. The original conversation draft is not cleared.
+
+**Activation remains off.** `.env.example` sets `NEXT_PUBLIC_PRIVATE_MEDIA_ENABLED=false`. While false, the editor states that private upload is unavailable and `PrivateMediaPanel` makes no asset-list, upload, preview, reference or delete request. The owner has not approved the proposed quotas, and no live Clerk, Neon or private Blob result has been verified. Enabling the frontend flag alone is not a service verification; the server routes, migration, quotas and credentials must be confirmed first.
+
+Checks: `node --test tests/private-media-client.test.mjs` passed 3/3, covering source-ID/digest mismatch, saved attachment retry ID, and byte-stable upload retry keys. Elevated `pnpm run build` passed after the final changes and compiled the new media UI with all existing routes. A live signed-in upload/preview/delete walkthrough remains pending service configuration and quota approval.
+
+Files: `components/PrivateMediaPanel.jsx`, `components/OwnerDraftEditor.jsx`, `lib/private-media-client.mjs`, `lib/owner-draft-client.mjs`, `app/organizer.css`, `.env.example`, and `tests/private-media-client.test.mjs`.

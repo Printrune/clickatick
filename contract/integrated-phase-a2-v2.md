@@ -1,0 +1,83 @@
+# Integrated ticketing Phase A2 v2 — private event drafts and creator import
+
+Date: 2026-10-20. Prospective contract under `brief/project.json` v93, revised after `frontend/integrated-phase-a2-review-v1.md`. Frontend and Backend must explicitly agree before code. A1 Clerk/Neon brand ownership and `{data,error}` envelope remain. The full Lovable product is the destination; clickatick conversation remains `/creator`, marketplace `/`, and current public Blob demo remains intact. New marketplace publication needs sign-in but **A2 has no Publish route, public Neon event or live checkout**. Multiple brands/staff, creator-choice inventory, numbered seating, venue and separate event locations, restrictions and disclaimer are preserved in private drafts.
+
+## Exact routes and handoff
+
+Private API prefix: `/api/v1/organizers/{organizerId}/events`. Browser pages: `/dashboard/{organizerId}` (real draft list/empty/error), `/dashboard/{organizerId}/events/new` (manual draft or imported creator draft) and `/dashboard/{organizerId}/events/{eventId}` (shared private editor). The existing `/creator` action for public Blob demo publishing stays separate and visibly labeled **“Publish demo listing”** until a later cutover. New action **“Save to brand draft”** begins the signed-in import; it does not publish. No draft content or capability token goes in a URL.
+
+If signed out, the creator draft remains in device storage through sign-in. After sign-in, zero brands sends the user through brand creation; one brand may be selected explicitly, and multiple brands require a chooser. Only then navigate to `/dashboard/{organizerId}/events/new?source=creator` and submit the unchanged local draft. Canceling sign-in, brand choice or upload returns to `/creator` with the draft intact. A successful server 201 **does not clear local storage**; only an explicit organizer “Discard local draft” action does. The server derives Clerk subject and verifies active brand membership for every route. Until staff write rights are approved, only brand owners may create/edit/import; viewers/editors can receive honest unavailable controls.
+
+## Neon migration 002, private only
+
+Add `organizer_event_drafts(id UUID PK, organizer_id UUID FK, version INTEGER>0, draft JSONB object NOT NULL, source manual|conversation, created_by_clerk_user_id, updated_by_clerk_user_id, created_at, updated_at)` with index `(organizer_id,updated_at DESC,id)`. Add `organizer_media_assets(id UUID PK, organizer_id UUID FK, private_blob_path UNIQUE, mime jpeg|png|webp, byte_length 1..2097152, width 1..4096, height 1..4096, alt_text, state ready|deleted, created_by_clerk_user_id, created_at)` with owner lookup index. This is a validated private snapshot, not a paid-order schema. Server assigns stable tier/section UUIDs and validates on every write/read. A later agreed catalog migration normalizes events, occurrences, stock and seats; no old Supabase data or policies are copied. A2 replaces A1's “Event management is being connected” dashboard state with a real database query: `drafts:[]` means no drafts for that brand, never “no sales”.
+
+## `EventDraftInput` — canonical JSON
+
+Required top-level keys on create are shown below. Blank/incomplete values are valid **drafts**. Unknown keys reject 400. String bounds: title ≤200, description/restrictions/disclaimer/refundPolicy ≤4,000, address ≤200, location name ≤100, tier name ≤100. At most 10 tiers, 50 individual dates, 50 sections, and **10,000 configured seats total**. JSON create/PATCH body ≤**256 KiB**. Capacity when present is integer 1..1,000,000; price when present is integer USD cents 0..10,000,000. All UUID references must belong to this brand. The server validates again regardless of client checks.
+
+```json
+{
+ "title":"","description":"","type":"event","timezone":"America/New_York",
+ "businessLocation":{"name":"","address":"","latitude":null,"longitude":null,"photoAssetId":null},
+ "sameLocation":true,"eventLocation":null,"coverAssetId":null,
+ "schedule":{"kind":"dates","dates":[],"startDate":null,"endDate":null,"weekdays":[],"localTime":null,"durationMinutes":60},
+ "inventory":{"dateScope":null,"tierScope":"shared","totalCapacity":null},
+ "tiers":[],"seating":{"enabled":false,"sections":[]},
+ "ticketFormat":"","restrictions":"","disclaimer":"","disclaimerReviewed":false,"refundPolicy":"",
+ "supportiveMessage":false,"referrals":{"enabled":false,"percentageBasisPoints":null},"paymentPreferences":[]
+}
+```
+
+`eventLocation` is null when `sameLocation=true`; when false it has the same `name,address,latitude,longitude,photoAssetId` shape. Latitude/longitude are both null or both finite numbers in `[-90,90]`/`[-180,180]`, rounded to at most six decimal places. `ticketFormat` is `""|digital|paper|both`; blank remains incomplete, **never silently becomes digital**. Inventory `dateScope` is `null|per_occurrence|across_dates`; null is allowed during import but later publication requires an explicit creator choice. `tierScope` is `shared|allocated`, independent of date scope. `totalCapacity` may be null in a draft. Tier: `{id?:UUID,name,description,priceMinor:null|integer,currency:"USD",allocation:null|integer,seatPolicy:"none|optional|required"}`. Section: `{id?:UUID,name,rows:1..100,seatsPerRow:1..100,seatTierId:null|UUID,accessibleSeats:[{row:number,number:number}]}`. A seat map is configuration only; A2 makes no seats available, held or sold.
+
+`schedule.dates` is **an array of local wall-time strings `YYYY-MM-DDTHH:mm`**, not UTC instants or objects. For `kind:"dates"`, weekly fields are null/empty. For `kind:"weekly"`, `dates:[]` and `startDate`/`endDate` are `YYYY-MM-DD`, `localTime` is `HH:mm`, `weekdays` are unique integers 0–6. Weekly range ≤366 days. Store the IANA timezone alongside the schedule and do not convert local times to UTC in A2. Calendar expansion and DST resolution belong to the later publish/occurrence contract. `durationMinutes` is integer 5..1440.
+
+Before later publication, business location requires address, photo asset and precise pin. If `sameLocation=false`, event location separately requires all three. A2 saves incomplete locations and returns field warnings; it does not claim the map or ticket is ready.
+
+## Legacy `/creator` import mapping and image recovery
+
+`POST .../events/import-draft` accepts `{sourceDraft:LegacyClickatickDraft,idempotencyKey:UUID}`. Body limit **2 MiB** because the existing `parseListing` draft can contain two inline photos and a scene cover. It validates with the existing parser, then maps to canonical draft. Manual create/PATCH retain the 256 KiB JSON limit. A successful import is **a saved but possibly incomplete private draft**; warnings name every required later action.
+
+- Dates: preserve each parsed local datetime string exactly (parsed empty date rows have already been filtered). Weekly `start`→`startDate`, `until`→`endDate`, `time`→`localTime`; keep `weekdays`, timezone and duration. No UTC conversion or invented occurrence.
+- Locations: if `sameLocation=true`, `businessLocation.address = setup.business.address || listing.location`; `eventLocation=null`. If false, keep `setup.business.address` for business, and `eventLocation.address = setup.eventLocation.address || listing.location`; do **not** copy the effective event address into business. Blank business address yields `LOCATION_NEEDED` warning. Existing coordinate strings convert exactly to bounded numbers; a missing or invalid pair stays null with `PIN_NEEDED` warning, never a guessed pin.
+- Tiers: existing `ticketTiers` IDs/names/description map directly; decimal prices convert exactly to integer cents, blank price→null. In allocated mode, each nonblank tier quantity is authoritative; blank→null, and `inventory.totalCapacity` is the sum only when all allocations are valid. In shared mode, `listing.capacity` is authoritative and tier allocations become null. If no tiers exist, create one General admission tier with stable returned UUID; `listing.price` blank→null and `listing.capacity` blank→null. Never call that tier complete if either is missing.
+- `setup.inventoryMode` maps only to `tierScope`; `dateScope=null` with `INVENTORY_DATE_SCOPE_NEEDED` warning until the organizer chooses per-occurrence or across-dates. Preserve restrictions, disclaimer, review state, refundPolicy, supportiveMessage, referrals (decimal percentage→exact integer basis points, blank→null), paymentPreferences, and blank ticketFormat. Preferences do not activate payments or payouts.
+- For each present inline `setup.business.photo`, `setup.eventLocation.photo` (when separate) and `coverImage`, set the target asset ID null and return a distinct `LOCAL_IMAGE_UPLOAD_NEEDED` warning at `businessLocation.photoAssetId`, `eventLocation.photoAssetId`, or `coverAssetId`. Include `localMediaSlot:"business|event-location|cover"` in that warning. The server never stores base64 in Neon. The browser **retains the full original device draft**, converts the corresponding local data URL to a File, uploads it under the selected brand, then PATCHes the returned asset ID into the saved event. An upload failure leaves the server draft incomplete and the device image recoverable. The organizer need not find the photo again. Never auto-clear local storage after 201.
+- If any legacy field cannot map, return `UNMAPPED_FIELD` with source path. The import may save an incomplete draft only if Frontend shows that warning and retains the original local draft; it cannot report a complete transfer.
+
+`warnings` items are `{path,code,message,localMediaSlot?:"business|event-location|cover"}`. They are informational, field-specific and distinct from validation errors. The same idempotent import replay returns the same event ID and warnings. After image upload a normal PATCH attaches the asset; no reimport is required. An import 201 does not imply a venue photo, map pin or published ticket exists.
+
+## Google Maps prototype and pin contract
+
+The private editor offers a Google Maps prototype picker **only when its client key and quota work**: enter address, view map, place or drag a marker, and write the resulting coordinate pair to the draft. Configure the Google Maps browser key with domain restrictions; never put a server secret in client code. No geocode result silently overwrites a manually placed pin. When an address changes, clear that location's coordinates immediately and ask the organizer to place/enter the pin again. Keep business and separate event pins independent. Manual latitude/longitude entry remains available with validation and a live coordinate readout; when Google tiles/picker is unavailable, show a free public Google Maps search link for the entered address/coordinates and an honest “Map picker unavailable” state. A link alone never counts as a selected pin. Saving the numeric pair is allowed in A2, but the UI must not claim map synchronization was verified when it was not. No map-provider call is made by the A2 API; it stores organizer-selected coordinates and address. Later public links derive from those values.
+
+## Routes, versions and errors
+
+All private event paths: `/api/v1/organizers/{organizerId}/events`. `OwnerDraft` is `{id,organizerId,version,source,draft:EventDraftInput,createdAt,updatedAt,permissions:{read,edit,publish:false}}`. List summary `{id,title,type,updatedAt,version,source,completeness:{missingCount}}`. No public URL is returned in A2. Only owners can write until editor rights are approved. Nonmembers and another brand's event share 404; disabled member or insufficient role gets 403. Reads verify the full stored snapshot; malformed stored data yields 503, not partial UI.
+
+| Route | Request | Success |
+| --- | --- | --- |
+| `GET /api/v1/organizers/{org}/events?cursor=&limit=` | limit 1..50, default 20; stable opaque `(updatedAt,id)` cursor | 200 `{drafts:OwnerDraftSummary[],nextCursor}`; empty array is real. |
+| `POST .../events` | `{draft:EventDraftInput,idempotencyKey:UUID}` ≤256 KiB | 201 `{event:OwnerDraft,warnings:[...]}`. |
+| `POST .../events/import-draft` | `{sourceDraft:LegacyClickatickDraft,idempotencyKey:UUID}` ≤2 MiB | 201 `{event:OwnerDraft,warnings:[...]}`. |
+| `GET .../events/{eventId}` | no body | 200 `{event:OwnerDraft}`. |
+| `PATCH .../events/{eventId}` | `{expectedVersion:integer,changes:Partial<EventDraftInput>}` ≤256 KiB | 200 `{event:OwnerDraft,warnings:[...]}` with version +1 if changed. |
+| `POST /api/v1/organizers/{org}/assets` | multipart one JPEG/PNG/WebP image, `altText`, `kind=business|event-location|cover` | 201 `{asset:{id,mime,byteLength,width,height,altText,previewUrl}}`. |
+| `GET /api/v1/organizers/{org}/assets/{assetId}` | member-only | bounded image bytes, `Cache-Control:no-store`; missing/foreign ID 404. |
+
+PATCH is top-level merge: missing key unchanged; supplied nested object/array replaces it fully; null clears only optional eventLocation and asset IDs or tier allocation, as allowed by schema. Unknown keys reject 400. A PATCH changing a location address must omit that location's coordinates; the server clears them. If it includes coordinates with the changed address, return 422 `PIN_RECONFIRM_REQUIRED` rather than silently ignore them. The editor saves the new address first, then sends a second PATCH with freshly selected coordinates; a coordinates-only PATCH leaves the address unchanged. Initial POST may include a new address and its selected coordinates because there is no previous pin to invalidate. A stale `expectedVersion` returns 409 `VERSION_CONFLICT` with `currentVersion`; canonical no-op returns current version without write. Stable child IDs persist when supplied; new rows receive IDs. All writes validate media ownership and snapshot in one Neon transaction.
+
+Create/import uses A1 `request_idempotency` scoped by subject+brand+operation. Same key+same normalized body replays the same 201 body and ID; key+different body 409. The browser keeps a key stable while retrying unchanged input and changes it only when input changes. A2 returns the same `{data,error}` envelope as A1, with 400 invalid body/fields, 401 signed out, 403 disabled/denied, 404 inaccessible, 409 conflict, 413 oversize, 429 abuse limit and 503 unconfigured storage. Field errors have `{path,code,message}`; no private blob path leaks.
+
+## Media limits and retention gate
+
+Upload accepts **at most 2 MiB raw input before re-encoding**, dimensions each 1..4096 and at most **12 million decoded pixels**. Server verifies image signature, decodes with safe limits, strips metadata/orientation via re-encode to JPEG/WebP and stores at most 2 MiB output in private Blob. Invalid content returns 400; raw oversize returns 413. The browser may convert an existing data URL to binary multipart; the server never accepts the data URL as the media API payload. Asset `previewUrl` is same-origin authenticated `/api/v1/organizers/{org}/assets/{assetId}` and remains stable while ready. Upload returns success only after Blob and Neon metadata both persist; safe orphan cleanup handles partial failure. Cross-brand asset references reject 404/422.
+
+**Retention is an owner decision pending.** Until an orphan cleanup/retention rule is approved and implemented, unrestricted new photo uploads remain disabled; A2 may implement the route behind a disabled capability and allow draft import to report recoverable local-media warnings. This keeps the rest of draft CRUD implementable without silently discarding images or accumulating indefinite private files. Existing local images stay on the device.
+
+## Tests and remaining gates
+
+Backend owns migration 002, brand-scoped draft/media adapters, parser/mapper, routes and tests. Frontend owns `/creator` handoff, brand choice, list/editor, Google Maps prototype/fallback, local image recovery and warning UX. Both sides agree this version's DTO and ownership in a versioned PM handoff **before code**. Tests: legacy dates/weekly wall time, standalone location, separate venue/event addresses, shared vs allocated quantities and blank price, blank ticketFormat, local image warning/reupload/PATCH, changed-address pin clearing and same-request coordinate rejection, cross-brand asset/404, stable idempotent import, versioned PATCH, size/pixel/seat bounds, and current public Blob behavior. Browser checks include canceled sign-in retaining draft and map failure fallback.
+
+PM asks one decision at a time: editor draft/publish rights; private media retention/cleanup; exact seated/unseated and accessible-seat policy; published-edit review. **A2 contains no Publish route, public Neon events, buyer checkout, live payment, admission ticket or email delivery.** No app code or service changed by this prospective contract.

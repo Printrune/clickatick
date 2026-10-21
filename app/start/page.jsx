@@ -1,2 +1,2 @@
 import {redirect} from 'next/navigation';
-export default function Start(){redirect('/#workspace');}
+export default function Start(){redirect('/creator');}

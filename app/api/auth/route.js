@@ -1,7 +1,8 @@
+import {creatorNeonCutoverEnabled,legacyPublishingClosedResponse} from '../../../lib/creator-neon-cutover.mjs';
 import {cookies} from 'next/headers';
 import {connections,database,sameOrigin} from '../../../lib/services';
 import {localMode,localRequest,localStore} from '../../../lib/local-store.mjs';
-export async function POST(request) {
+export async function POST(request) {if(creatorNeonCutoverEnabled())return legacyPublishingClosedResponse();
   if(!sameOrigin(request)) return Response.json({error:'Please use the clickatick website.'},{status:403});
   if(localMode()){
     if(!localRequest(request))return Response.json({error:'Use clickatick on this computer.'},{status:403});
@@ -29,7 +30,7 @@ export async function POST(request) {
     return Response.json({sent:true});
   } catch {return Response.json({error:'Login could not be completed. Check your email and code, then try again.'},{status:400});}
 }
-export async function DELETE(request) {
+export async function DELETE(request) {if(creatorNeonCutoverEnabled())return legacyPublishingClosedResponse();
   if(!sameOrigin(request)) return Response.json({error:'Please use the clickatick website.'},{status:403});
   if(localMode()){
     if(!localRequest(request))return Response.json({error:'Use clickatick on this computer.'},{status:403});

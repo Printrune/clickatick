@@ -1,0 +1,14 @@
+# Frontend review: A6 contract v1
+
+Date: 2026-10-21. Reviewed against `brief/project.json` v104, `frontend/integrated-phase-a6-proposal-v1.md`, and `integration/design/integrated-phase-a6-v1.md`. **Amend before Frontend agreement or A6 code.**
+
+The proposed direction matches the approved product: one private working revision per stable public event, owner approval for every public change, sparse seat geometry, mixed general admission and numbered seats, configured-only counts, version-bound quotes, and immutable no-PII receipt facts. Accessible seats remain selectable without an eligibility prompt. The legacy A4 receipt fallback is honest.
+
+Four interface details need to be fixed in v2:
+
+1. **Exact mutation results.** Specify complete `{data,error}` DTOs for revision create, PATCH, submit and return, not only status and prose. Frontend needs the same `event,revision,permissions,changes,validation` projection as `GET .../revisions/current`, or an explicit alternative, after each action. A no-op PATCH must return the unchanged revision version and current validation. Define whether `REVISION_EXISTS` includes a safe `revisionId`/edit URL for the current member. This prevents a blind refetch or a false “saved” state after an uncertain response.
+2. **Seat section position and A2 compatibility.** Define whether `position` is an integer written by the client or derived from `sections[]` order. State how existing A2 draft sections without `position,removedSeats,seatOverrides,geometryReset` are projected and accepted by the strict A2 parser and 256 KiB PATCH route. The first A6 save must not reject or reorder an existing draft. If moving a section changes only display order, state whether its seats keep IDs; the current rule ties identity to section position, which would silently replace IDs when an organizer reorders the section rail.
+3. **Stale quote response.** Give the exact `GET /demo-quotes/{id}` `event_changed` data shape and the exact 409 checkout error extension. Return the old quote selection and version for explanation, plus `currentEventVersion` and `detailUrl`, but do not return a new price/seat mapping. The UI will show the old intent and ask the guest to choose again. Clarify whether a missing/cancelled event uses the same status or the existing distinct error.
+4. **Versioned media URLs.** Specify the same-origin image URL template and active public event/detail media fields after approval. Specify whether an immutable receipt snapshot carries a versioned media URL or only an asset reference. Without this, the frontend cannot reliably show an old receipt image while the current listing uses a replacement. Do not expose private Blob paths.
+
+These amendments do not change owner decisions. The release gates should remain off. After v2 fixes the DTOs and section identity, Frontend can agree the API and start seat authoring, followed by private revision comparison and the buyer/receipt cutover.

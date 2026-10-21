@@ -55,6 +55,7 @@ test('generated data is rejected when malformed',()=>{assert.throws(()=>parseGen
 test('actual artwork POST route checks origin and creator cookie and accepts one bounded request',async()=>{
  const f=fixture(),id=randomUUID(),requestId=randomUUID();
  let source=await readFile(new URL('../app/api/demo/listings/[id]/artwork/route.js',import.meta.url),'utf8');
+ source=source.replace("'../../../../../../lib/creator-neon-cutover.mjs'",JSON.stringify(new URL('../lib/creator-neon-cutover.mjs',import.meta.url).href));
  source=source.replace("import {sameOrigin} from '../../../../../../lib/services';","const sameOrigin=request=>request.headers.get('origin')==='https://example.test';");
  source=source.replace("import {artworkService} from '../../../../../../lib/event-artwork.mjs';","const artworkService=globalThis.__artworkRouteFixture;");
  source=source.replace("'../../../../../../lib/marketing-http.mjs'",JSON.stringify(new URL('../lib/marketing-http.mjs',import.meta.url).href));

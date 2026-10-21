@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 81,
+  "version": 107,
   "isDemo": true,
   "business": {
     "name": "clickatick",
@@ -789,6 +789,41 @@
     "version": 1,
     "mainRole": "Product Manager",
     "marketingStatus": "Per-event marketing workspace and creator-only quick share/copy/editor/campaign-link tools are deployed; no automatic social posting, bot connection, analytics reports or ad spend."
+  },
+  "lovableFullIntegration": {
+    "status": "planning",
+    "ownerDecision": "Integrate the entire original Lovable ticketing system as the main product; preserve the current conversational ticket creation experience.",
+    "source": "Owner-provided 09e2efe5-1da8-4104-a621-85a94efbc52c.zip",
+    "checkoutDecision": "Integrated checkout remains a clearly labeled demo until a verified payment provider is connected. It issues no admission ticket or paid order.",
+    "organizerAccessDecision": "Organizer sign-in is required to manage events in the integrated dashboard. The conversational ticket creator remains open to everyone.",
+    "homepageDecision": "The marketplace is the home page. The existing conversational creator moves to /creator.",
+    "signInMethodsDecision": "Offer both Google and email sign-in to organizers.",
+    "identityProviderDecision": "Use Clerk free plan for organizer identity. Production Google OAuth credentials and Clerk app configuration remain to be connected.",
+    "databaseDecision": "Use a new Neon free-plan Postgres database for integrated ticketing data. Retain the current private Vercel Blob store for demo media and snapshots. No old Lovable Supabase data or credentials are reused.",
+    "seatingDecision": "Include numbered arena seating and seat maps in the demo integration; this supersedes the earlier deferral. Do not imply a seat is sold or reserved in demo checkout.",
+    "publishingDecision": "The conversational creator stays open, but organizers must sign in before publishing to the new marketplace so events are owned and editable in the dashboard. The prior anonymous Blob demo is a migration artifact, not the main publishing path.",
+    "demoSeatingDecision": "Guests may choose exact numbered seats in demo checkout. A demo choice does not reserve or sell a seat.",
+    "recurringInventoryDecision": "Each creator chooses whether capacity and seat availability are separate for each occurrence or one total shared across all dates.",
+    "organizerStructureDecision": "An organizer account can invite staff and manage more than one brand or business. Event access must be scoped to membership and role.",
+    "mapDecision": "Use a Google Maps Demo Key for the prototype interactive map and draggable location pin. Google states this key is for testing and prototyping, not production; public-site fallback is a Google Maps directions link until an eligible map configuration is connected.",
+    "decisionPending": "Hosted Clerk and Neon account setup plus Google Maps Demo Key configuration.",
+    "sourceAudit": [
+      "../../../../integration/reviews/lovable-backend-map-v1.md",
+      "../../../../integration/reviews/lovable-frontend-map-v1.md"
+    ],
+    "editorRightsDecision": "Invited editors may prepare event changes, but a brand owner must approve publishing and cancellations.",
+    "mediaRetentionDecision": "Keep private event photos until the organizer explicitly deletes them. Do not automatically delete unused uploads or attached images.",
+    "staffInvitationDecision": "Brand owners can invite staff through both a private invitation link and an emailed invitation. Email delivery must be connected and verified before claiming it was sent.",
+    "mixedSeatingDecision": "An event may offer both numbered-seat ticket types and general-admission ticket types.",
+    "accessibleSeatDecision": "Accessible seats are clearly labeled and may be selected by any guest in demo checkout; no eligibility prompt or reservation is implied.",
+    "mediaAllowanceDecision": "Owner requests up to 100 images and 10 videos per brand, with each video up to 100 MB. The earlier 100 MiB total image-only proposal is superseded. Continue with the free Vercel Blob plan for now and stop uploads at its shared 1 GB allowance, even when a brand has remaining item slots. Image size, video delivery and upload rate remain to be decided before uploads are enabled.",
+    "demoAbuseLimitsDecision": "Owner does not want to choose demo-specific limits. PM may set reasonable operational abuse limits suitable for a ticketing platform and adjust them from measured usage. This does not authorize paid checkout or admission issuance; existing demo-only checkout decision remains until a verified payment provider is connected.",
+    "demoReceiptRetentionDecision": "Keep no-PII shareable demo confirmation links available until their event is explicitly deleted. Cancellation does not delete a receipt. Event deletion and related cleanup require a separate owner-authorized flow.",
+    "publishedEditDecision": "A brand owner may edit a published listing in place while keeping its public URL. Existing demo confirmations retain the event and ticket details captured when they were created. Material changes require owner review before the new listing version appears publicly.",
+    "storefrontUrlDecision": "Each brand storefront uses a stable generated identifier in its public URL. Its displayed brand name may change without breaking shared links.",
+    "legacyDemoVisibilityDecision": "After the new Neon marketplace replaces the old demo catalog, legacy Blob demo listings disappear from marketplace search and discovery but remain available through their existing shared direct links.",
+    "discountFeeBasisDecision": "For discounted tickets, calculate the clickatick 10% platform fee on the discounted ticket price, not the original price.",
+    "discountReferralBasisDecision": "For a discounted ticket attributed to a referral, calculate the organizer-set referral percentage on the discounted ticket price. The reward is funded from the organizer's share; no real payout is connected yet."
   },
   "backendIntegration": {
     "source": "Owner-provided ticketing archive",

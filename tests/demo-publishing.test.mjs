@@ -77,6 +77,7 @@ async function routeHandlers(service){
  globalThis.__demoRouteService=service;
  const rewrite=async(path,depth)=>{
   let source=await readFile(new URL(path,import.meta.url),'utf8');
+  source=source.replace(`'${depth}lib/creator-neon-cutover.mjs'`,JSON.stringify(new URL('../lib/creator-neon-cutover.mjs',import.meta.url).href));
   source=source.replace(`import {sameOrigin} from '${depth}lib/services';`,"const sameOrigin=request=>request.headers.get('origin')==='https://example.test';");
   source=source.replace(`import {publishDemoListing} from '${depth}lib/demo-service.mjs';`,"const publishDemoListing=input=>globalThis.__demoRouteService.publish(input);");
   source=source.replace(`import {checkoutDemoListing} from '${depth}lib/demo-service.mjs';`,"const checkoutDemoListing=(id,input)=>globalThis.__demoRouteService.checkout(id,input);");

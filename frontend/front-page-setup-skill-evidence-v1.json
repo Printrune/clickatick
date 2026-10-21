@@ -1,0 +1,52 @@
+{
+  "briefVersion": 52,
+  "scope": "Extend approved bubble direction, no new exploration",
+  "loaded": [
+    {
+      "path": ".agents/skills/frontend-design/SKILL.md",
+      "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+    },
+    {
+      "path": ".agents/skills/workshop-owner-language/SKILL.md",
+      "sha256": "0ca29d37177342ef48a1261181c5f518a779f1883e81a5239f6f72632c616a3a"
+    },
+    {
+      "path": ".agents/skills/intentional-ui-design/SKILL.md",
+      "sha256": "b1967540ca5a70d00844a8a70c9f89e1cfe6ae20647fe93d5700c4fc64d81b0c"
+    },
+    {
+      "path": ".agents/skills/yc-interface-craft/SKILL.md",
+      "sha256": "8cf5e799a359faf9c63f466622e55571cd3067c67126879e95775565aac9944e"
+    },
+    {
+      "path": ".agents/skills/yc-interface-craft/references/system-and-surfaces.md",
+      "sha256": "355c2a9265d30e941b48976fc25ae5da7ee1e6d07769e0e92e2d53705aade804"
+    },
+    {
+      "path": ".agents/skills/yc-interface-craft/references/motion-and-quality.md",
+      "sha256": "d92a49dadf7d29bdc285a64dc9c77d86f1f3e00d39ae7cfc8670bdaff1302b3a"
+    },
+    {
+      "path": ".agents/skills/emil-design-eng/SKILL.md",
+      "sha256": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939"
+    },
+    {
+      "path": ".agents/skills/animation-performance/SKILL.md",
+      "sha256": "ceb9dd3fe912615830f725a0120ccf8d012d15a6218001a5cd6c15d38e39a957"
+    },
+    {
+      "path": ".agents/skills/brief-to-site/SKILL.md",
+      "sha256": "defc7c7719d3647f8b52f1aa7f457916697b1febd650d67cfe2a27a21190ffad"
+    },
+    {
+      "path": ".agents/skills/copy-editing/SKILL.md",
+      "sha256": "2a072606d9d5662509ea6ef62c65719487dcb68876acab9286bde4d1af5c030f"
+    },
+    {
+      "path": ".agents/skills/illustration-design-grammar/SKILL.md",
+      "sha256": "eeeea0ae257b38baf6707b4ee29b52cf8a984f6a307bf8f2aaa14f033506c21b"
+    }
+  ],
+  "nextDocs": "node_modules/next/dist/docs/01-app/03-api-reference/01-directives/use-client.md",
+  "note": "Read relevant sections; no new animation system, SEO page family or marketing work."
+}

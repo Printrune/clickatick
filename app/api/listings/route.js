@@ -1,8 +1,9 @@
+import {creatorNeonCutoverEnabled,legacyPublishingClosedResponse} from '../../../lib/creator-neon-cutover.mjs';
 import {parseListing,publicationErrors} from '../../../lib/listing.mjs';
 import {connections,database,session,sameOrigin} from '../../../lib/services';
 import {publicationPayload,eventPublicationPath,eventPublicationErrors} from '../../../lib/event-system.mjs';
 import {localMode,localRequest,localStore} from '../../../lib/local-store.mjs';
-export async function POST(request) {
+export async function POST(request) {if(creatorNeonCutoverEnabled())return legacyPublishingClosedResponse();
   if(!sameOrigin(request)) return Response.json({error:'Please use the clickatick website.'},{status:403});
   if(localMode()&&!localRequest(request))return Response.json({error:'Use clickatick on this computer.'},{status:403});
   if(!connections().publishing) return Response.json({error:'Publishing is not connected yet. Your draft is kept on this device.'},{status:503});
