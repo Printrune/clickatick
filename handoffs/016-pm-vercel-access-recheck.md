@@ -1,0 +1,5 @@
+# PM Vercel access recheck
+
+Date: 2026-10-21. After the owner reconnected the Vercel plugin, `get_project` and `list_projects` succeeded for team `printrunes-projects` and project `ticketnest` (`prj_mKOovqvOBjKSI72gPPRA9Ip1iGES`). The production deployment is READY and its domain is `ticketnest-psi.vercel.app`; this verifies connector access, not the new integrated code.
+
+Read-only environment metadata listed Anthropic AI and Blob-related keys. It did not list Clerk or Neon configuration. No secret values were read into the report. The project connector list and integration configuration list were empty, and Git deployment context reported no linked Git projects. The signed-in Vercel dashboard is not available in the task's in-app browser; opening the existing project's Git settings redirected to Vercel login. Do not create a second Vercel project, deploy the gated branch, or enable the creator cutover until the existing project has a suitable Git source and Clerk/Neon/media are connected and verified.
