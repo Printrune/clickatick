@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": 77,
-  "isDemo": true,
+  "version": 108,
+  "isDemo": false,
   "business": {
     "name": "clickatick",
     "audienceType": "b2b",
@@ -135,19 +135,19 @@
     ]
   },
   "product": {
-    "status": "draft",
+    "status": "approved",
     "journey": "listing",
     "primaryAction": {
       "label": "Create tickets",
-      "href": "/start"
+      "href": "/creator"
     },
-    "outcome": "Create and review a listing through conversation, publish a public demo without login, and let guests complete a simulated ticket purchase.",
+    "outcome": "Create and review an event listing through conversation, sign in to publish it, and let guests explore it. Checkout remains simulated.",
     "acceptance": [
       "Start a listing draft without an account.",
       "Have a natural conversation through live artificial intelligence using voice or text; show and speak agent replies.",
       "Accept several details in one answer, remember supplied details, and ask focused follow-up questions only when needed.",
       "Support single-date events, activity dates, weekly schedules, and multiple ticket types with separate prices and quantities.",
-      "Review and edit the listing draft; require login and an explicit Publish action before publication. Payments are outside the demonstration."
+      "Review and edit the listing draft; require organizer sign-in and owner approval before public publication. Checkout does not charge or issue admission tickets."
     ]
   },
   "brand": {
@@ -179,6 +179,12 @@
   "solutions": [],
   "siteUrl": null,
   "publicationApproved": false,
+  "launchTransition": {
+    "ownerDecision": "Make organizer event creation, publishing, public listings, and discovery live. Keep payment and checkout simulated until a provider is connected and verified.",
+    "decisionDate": "2026-10-22",
+    "status": "implementation-and-connected-verification-pending",
+    "releaseRule": "Do not call an unverified feature live. Keep payment, admission tickets, reservations, sale confirmations, and payouts explicitly simulated or unavailable."
+  },
   "approvals": [
     {
       "evidence": "Owner answered yes to the positioning recommendation.",
@@ -410,23 +416,24 @@
       "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
     ],
     "aiProvider": "Direct Anthropic Claude API",
-    "sourceRepository": "GitHub if available",
-    "status": "READY: decorative eyebrow boxes removed sitewide, including the shared Early preview header label. Ticket information remains first; colorful creator dashboard is at the bottom.",
+    "sourceRepository": "https://github.com/Printrune/clickatick",
+    "status": "READY and publicly accessible: Vercel project SSO, password protection and trusted IP restrictions are disabled. Unauthenticated homepage and demo listing returned HTTP 200. Realistic Gateway generation remains off pending confirmed positive credit.",
     "project": "ticketnest",
     "projectId": "prj_mKOovqvOBjKSI72gPPRA9Ip1iGES",
-    "deploymentId": "dpl_BYsBjutoNAhsLhorRTM4mbMf5kvf",
+    "deploymentId": "dpl_4QktEm8HMznjcjXBDwKtmdJi17Nt",
     "deploymentUrl": "https://ticketnest-psi.vercel.app",
-    "gitLinked": false
+    "gitLinked": false,
+    "sourcePushed": true
   },
   "aiBudget": {
-    "status": "Three successful real Claude responses verified across activation and visual refinements. Exact billed amount not inspected. USD10 total allowance unchanged; automatic refills remain off.",
+    "status": "Three successful real Claude responses verified historically. Exact billed amount not inspected. Owner approved Vercel AI Gateway for optional realistic images within the same USD10 total test allowance, but current Gateway credit is unconfirmed and image calls remain disabled.",
     "approvedByOwner": true,
     "maximumTotal": 10,
     "currency": "USD",
     "spentByThisTask": null,
     "providerSelected": true,
     "providerAccountAvailable": true,
-    "scope": "Up to USD 10 total direct Claude API testing, funded by owner-confirmed prepaid credits; automatic refills disabled.",
+    "scope": "Up to USD 10 total AI demonstration testing across direct Claude API and optional Vercel AI Gateway images. Automatic refills and paid top-ups disabled; image generation requires a positive Gateway balance and a separate production gate.",
     "requirements": [
       "Use application usage limits and available provider spending controls.",
       "Do not claim a provider budget alert is a guaranteed spending cap.",
@@ -439,11 +446,23 @@
     "paidUpgradesAllowed": false,
     "freeTierConfirmed": false
   },
+  "eventArtwork": {
+    "status": "Published scene capture deployed; active image projects to public listing and demo confirmation. Optional realistic Gateway generation deployed but disabled until positive credit is confirmed. No paid image call made.",
+    "gatewayModel": "bfl/flux-3-image-klein",
+    "globalGenerationAttempts": 20,
+    "sceneFallback": true,
+    "cameraPhotoUploaded": false,
+    "contract": "contract/event-artwork-v2.md",
+    "backendHandoff": "backend/event-artwork-v2.md",
+    "frontendHandoff": "frontend/event-artwork-v1.md"
+  },
   "design": {
     "status": "approved",
     "formRule": "Restrained rounded panels and visible labels",
     "layout": "Scene and conversation inside one persistent expanding bubble; bounded stack on phones.",
     "direction": "Clear workspace with violet, peach, and lime refinement",
+    "lightModeBackground": "Faint ticket-outline pattern drifts slowly behind the front page; reduced-motion users see it still.",
+    "creatorBotRoster": "Seven distinct bot-inspired links open relevant creator editors; none are connected or running. Custom bot connection remains unavailable.",
     "compositionRule": "Conversation and listing output share the main workspace",
     "motionRule": "Measured bubble expansion, local 220-280 ms fact transitions, worker-based face processing, reduced-motion fallback.",
     "refinement": "Owner requested more colour and interactive homepage creation. Added event-type cards and direct title, price, and capacity editing with immediate preview updates.",
@@ -699,7 +718,10 @@
       "constraints": "Reuse published listing facts. Preserve anonymous creation and public guest view. Design server-verified creator access before shared marketing persistence. No automatic posting, ad spend, new AI budget or unverified image/video generation.",
       "deploymentId": "dpl_BYsBjutoNAhsLhorRTM4mbMf5kvf",
       "evidence": "frontend/marketing-dashboard-color-v1.md",
-      "dashboardPreviewStatus": "deployed-ready-colorful-clickable-no-action",
+      "dashboardPreviewStatus": "deployed-ready-quick-functional-tools",
+      "quickToolsContract": "contract/marketing-quick-tools-v1.md",
+      "quickToolsHandoff": "handoffs/marketing-quick-tools-frontend-v1.md",
+      "quickTools": "Seven user-controlled share composers, twelve caption copy actions, existing format editors, and a UTM campaign URL copier. No posting, connected bots, or analytics reports.",
       "dashboardControls": 34
     },
     "bottomReview": {
@@ -772,7 +794,42 @@
     "ownerInstruction": "Use the supplied eight specialist role instructions for each relevant step.",
     "version": 1,
     "mainRole": "Product Manager",
-    "marketingStatus": "Per-event marketing workspace and dashboard preview implemented; no clickatick campaign, social posting or ad spend."
+    "marketingStatus": "Per-event marketing workspace and creator-only quick share/copy/editor/campaign-link tools are deployed; no automatic social posting, bot connection, analytics reports or ad spend."
+  },
+  "lovableFullIntegration": {
+    "status": "planning",
+    "ownerDecision": "Integrate the entire original Lovable ticketing system as the main product; preserve the current conversational ticket creation experience.",
+    "source": "Owner-provided 09e2efe5-1da8-4104-a621-85a94efbc52c.zip",
+    "checkoutDecision": "Integrated checkout remains a clearly labeled demo until a verified payment provider is connected. It issues no admission ticket or paid order.",
+    "organizerAccessDecision": "Organizer sign-in is required to manage events in the integrated dashboard. The conversational ticket creator remains open to everyone.",
+    "homepageDecision": "The marketplace is the home page. The existing conversational creator moves to /creator.",
+    "signInMethodsDecision": "Offer both Google and email sign-in to organizers.",
+    "identityProviderDecision": "Use Clerk free plan for organizer identity. Production Google OAuth credentials and Clerk app configuration remain to be connected.",
+    "databaseDecision": "Use a new Neon free-plan Postgres database for integrated ticketing data. Retain the current private Vercel Blob store for demo media and snapshots. No old Lovable Supabase data or credentials are reused.",
+    "seatingDecision": "Include numbered arena seating and seat maps in the demo integration; this supersedes the earlier deferral. Do not imply a seat is sold or reserved in demo checkout.",
+    "publishingDecision": "The conversational creator stays open, but organizers must sign in before publishing to the new marketplace so events are owned and editable in the dashboard. The prior anonymous Blob demo is a migration artifact, not the main publishing path.",
+    "demoSeatingDecision": "Guests may choose exact numbered seats in demo checkout. A demo choice does not reserve or sell a seat.",
+    "recurringInventoryDecision": "Each creator chooses whether capacity and seat availability are separate for each occurrence or one total shared across all dates.",
+    "organizerStructureDecision": "An organizer account can invite staff and manage more than one brand or business. Event access must be scoped to membership and role.",
+    "mapDecision": "Use a Google Maps Demo Key for the prototype interactive map and draggable location pin. Google states this key is for testing and prototyping, not production; public-site fallback is a Google Maps directions link until an eligible map configuration is connected.",
+    "decisionPending": "Hosted Clerk and Neon account setup plus Google Maps Demo Key configuration.",
+    "sourceAudit": [
+      "../../../../integration/reviews/lovable-backend-map-v1.md",
+      "../../../../integration/reviews/lovable-frontend-map-v1.md"
+    ],
+    "editorRightsDecision": "Invited editors may prepare event changes, but a brand owner must approve publishing and cancellations.",
+    "mediaRetentionDecision": "Keep private event photos until the organizer explicitly deletes them. Do not automatically delete unused uploads or attached images.",
+    "staffInvitationDecision": "Brand owners can invite staff through both a private invitation link and an emailed invitation. Email delivery must be connected and verified before claiming it was sent.",
+    "mixedSeatingDecision": "An event may offer both numbered-seat ticket types and general-admission ticket types.",
+    "accessibleSeatDecision": "Accessible seats are clearly labeled and may be selected by any guest in demo checkout; no eligibility prompt or reservation is implied.",
+    "mediaAllowanceDecision": "Owner requests up to 100 images and 10 videos per brand, with each video up to 100 MB. The earlier 100 MiB total image-only proposal is superseded. Continue with the free Vercel Blob plan for now and stop uploads at its shared 1 GB allowance, even when a brand has remaining item slots. Image size, video delivery and upload rate remain to be decided before uploads are enabled.",
+    "demoAbuseLimitsDecision": "Owner does not want to choose demo-specific limits. PM may set reasonable operational abuse limits suitable for a ticketing platform and adjust them from measured usage. This does not authorize paid checkout or admission issuance; existing demo-only checkout decision remains until a verified payment provider is connected.",
+    "demoReceiptRetentionDecision": "Keep no-PII shareable demo confirmation links available until their event is explicitly deleted. Cancellation does not delete a receipt. Event deletion and related cleanup require a separate owner-authorized flow.",
+    "publishedEditDecision": "A brand owner may edit a published listing in place while keeping its public URL. Existing demo confirmations retain the event and ticket details captured when they were created. Material changes require owner review before the new listing version appears publicly.",
+    "storefrontUrlDecision": "Each brand storefront uses a stable generated identifier in its public URL. Its displayed brand name may change without breaking shared links.",
+    "legacyDemoVisibilityDecision": "After the new Neon marketplace replaces the old demo catalog, legacy Blob demo listings disappear from marketplace search and discovery but remain available through their existing shared direct links.",
+    "discountFeeBasisDecision": "For discounted tickets, calculate the clickatick 10% platform fee on the discounted ticket price, not the original price.",
+    "discountReferralBasisDecision": "For a discounted ticket attributed to a referral, calculate the organizer-set referral percentage on the discounted ticket price. The reward is funded from the organizer's share; no real payout is connected yet."
   },
   "backendIntegration": {
     "source": "Owner-provided ticketing archive",

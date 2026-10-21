@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {validateBrief,canIndex,ready,marketingContext} from '../lib/brief.mjs';
 const read=p=>JSON.parse(fs.readFileSync(new URL(p,import.meta.url)));
 for(const kind of ['b2b','b2c'])test(`${kind} preserves context and action`,()=>{const p=read(`../examples/${kind}.json`);assert.deepEqual(validateBrief(p),[]);assert.match(marketingContext(p),new RegExp(`Buying context: ${kind}`));assert.equal(canIndex(p),false);assert.equal(p.product.journey,kind==='b2b'?'assessment':'quote');});
-test('real unapproved scope fails',()=>{const p=read('../brief/project.json');p.isDemo=false;assert.ok(validateBrief(p).some(x=>x.includes('Confirm positioning')));});
+test('real unapproved scope fails',()=>{const p=read('../brief/project.json');p.isDemo=false;p.product.status='draft';assert.ok(validateBrief(p).some(x=>x.includes('Confirm positioning and product scope')));});
 test('drafts remain gated',()=>{assert.equal(ready({status:'draft'}),false);assert.equal(ready({status:'approved'}),true);});
 test('missing source fails',()=>{const p=read('../examples/b2b.json');p.articles[0].sourceIds=['invented'];assert.ok(validateBrief(p).some(x=>x.includes('source IDs')));});
 test('duplicate and unsafe slugs fail',()=>{const p=read('../examples/b2b.json');p.articles.push({...p.articles[0]});assert.ok(validateBrief(p).some(x=>x.includes('duplicate slug')));p.articles[0].slug='../escape';assert.ok(validateBrief(p).some(x=>x.includes('invalid')));});

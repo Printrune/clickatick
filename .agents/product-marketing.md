@@ -1,6 +1,6 @@
 # Product marketing context
 
-Version: 77
+Version: 108
 Business: clickatick
 Buying context: b2b
 Customer: Independent local event organisers and activity providers in the United States.
@@ -11,7 +11,7 @@ Positioning: clickatick helps local event and activity organizers create ticket 
 Difference: Proposed benefit: direct voice access and simple setup. Demand and differentiation remain unvalidated.
 Journey: listing
 Action: Create tickets
-Scope: Start a listing draft without an account.; Have a natural conversation through live artificial intelligence using voice or text; show and speak agent replies.; Accept several details in one answer, remember supplied details, and ask focused follow-up questions only when needed.; Support single-date events, activity dates, weekly schedules, and multiple ticket types with separate prices and quantities.; Review and edit the listing draft; require login and an explicit Publish action before publication. Payments are outside the demonstration.
+Scope: Start a listing draft without an account.; Have a natural conversation through live artificial intelligence using voice or text; show and speak agent replies.; Accept several details in one answer, remember supplied details, and ask focused follow-up questions only when needed.; Support single-date events, activity dates, weekly schedules, and multiple ticket types with separate prices and quantities.; Review and edit the listing draft; require organizer sign-in and owner approval before public publication. Checkout does not charge or issue admission tickets.
 
 ## Sources
 - ticket-tailor-ai: Ticket Tailor conversational event creation (2026-10-17) https://help.tickettailor.com/en/articles/16983272-how-can-i-build-a-ticket-tailor-event-with-ai

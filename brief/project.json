@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": 107,
-  "isDemo": true,
+  "version": 108,
+  "isDemo": false,
   "business": {
     "name": "clickatick",
     "audienceType": "b2b",
@@ -135,19 +135,19 @@
     ]
   },
   "product": {
-    "status": "draft",
+    "status": "approved",
     "journey": "listing",
     "primaryAction": {
       "label": "Create tickets",
-      "href": "/start"
+      "href": "/creator"
     },
-    "outcome": "Create and review a listing through conversation, publish a public demo without login, and let guests complete a simulated ticket purchase.",
+    "outcome": "Create and review an event listing through conversation, sign in to publish it, and let guests explore it. Checkout remains simulated.",
     "acceptance": [
       "Start a listing draft without an account.",
       "Have a natural conversation through live artificial intelligence using voice or text; show and speak agent replies.",
       "Accept several details in one answer, remember supplied details, and ask focused follow-up questions only when needed.",
       "Support single-date events, activity dates, weekly schedules, and multiple ticket types with separate prices and quantities.",
-      "Review and edit the listing draft; require login and an explicit Publish action before publication. Payments are outside the demonstration."
+      "Review and edit the listing draft; require organizer sign-in and owner approval before public publication. Checkout does not charge or issue admission tickets."
     ]
   },
   "brand": {
@@ -179,6 +179,12 @@
   "solutions": [],
   "siteUrl": null,
   "publicationApproved": false,
+  "launchTransition": {
+    "ownerDecision": "Make organizer event creation, publishing, public listings, and discovery live. Keep payment and checkout simulated until a provider is connected and verified.",
+    "decisionDate": "2026-10-22",
+    "status": "implementation-and-connected-verification-pending",
+    "releaseRule": "Do not call an unverified feature live. Keep payment, admission tickets, reservations, sale confirmations, and payouts explicitly simulated or unavailable."
+  },
   "approvals": [
     {
       "evidence": "Owner answered yes to the positioning recommendation.",
