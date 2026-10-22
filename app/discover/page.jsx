@@ -5,7 +5,7 @@ import NewDemoCatalog from '../../components/NewDemoCatalog';
 import CutoverCatalog from '../../components/CutoverCatalog';
 
 export const dynamic='force-dynamic';
-export const metadata={title:'Discover events',description:'Browse public clickatick event and activity demos.'};
+export const metadata={title:'Discover events',description:'Browse published clickatick events and activities. Checkout is simulated.'};
 
 const queryValue=value=>typeof value==='string'?value:Array.isArray(value)&&typeof value[0]==='string'?value[0]:'';
 const normalize=value=>value.trim().replace(/\s+/g,' ').toLocaleLowerCase('en-US');
