@@ -13,6 +13,8 @@ test('live organizer media cannot use the legacy store or a legacy token fallbac
  assert.equal(liveMediaStoreConfigured(isolated),true);
  assert.deepEqual(liveMediaStoreOptions(isolated),{storeId:'store_live'});
  assert.equal(liveMediaStoreConfigured({...isolated,MEDIA_BLOB_STORE_ID:'store_legacy'}),false);
+ assert.equal(liveMediaStoreConfigured({...isolated,BLOB_READ_WRITE_TOKEN:'vercel_blob_rw_live_secret'}),true);
+ assert.equal(liveMediaStoreConfigured({...isolated,BLOB_READ_WRITE_TOKEN:'vercel_blob_rw_legacy_secret'}),false);
  assert.equal(liveMediaStoreConfigured({...isolated,BLOB_READ_WRITE_TOKEN:'legacy-token'}),false);
  assert.throws(()=>liveMediaStoreOptions({...isolated,MEDIA_BLOB_STORE_ID:'store_legacy'}),/not isolated/);
 });

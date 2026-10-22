@@ -2,7 +2,8 @@
 // It never exposes credentials or creates a public administration endpoint.
 if(process.env.CLICKATICK_RECONCILE_MEDIA_STORE!=='true')process.exit(0);
 if(process.env.VERCEL_ENV!=='preview')throw new Error('Private media reconciliation is permitted only in a Vercel preview build.');
-if(!process.env.BLOB_STORE_ID||!process.env.MEDIA_BLOB_STORE_ID||process.env.MEDIA_BLOB_STORE_ID===process.env.BLOB_STORE_ID||process.env.BLOB_READ_WRITE_TOKEN)throw new Error('The live media store must be separate from the legacy Blob store and use OIDC.');
+const {liveMediaStoreConfigured}=await import('../lib/private-blob-credentials.mjs');
+if(!liveMediaStoreConfigured())throw new Error('The live media store must be separate from the legacy Blob store, and any fallback token must target the media store.');
 if(!process.env.DATABASE_URL)throw new Error('The Preview database is not connected.');
 if(process.env.MEDIA_ALL_WRITERS_COORDINATED!=='true')throw new Error('Shared Blob writers have not been coordinated.');
 
