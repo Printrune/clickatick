@@ -5,8 +5,10 @@ import './marketplace.css';
 import NewDemoCatalog from '../components/NewDemoCatalog';
 import CutoverCatalog from '../components/CutoverCatalog';
 import PartnerEvents from '../components/PartnerEvents';
+import {pageMeta} from '../lib/site';
 
 export const dynamic='force-dynamic';
+export const metadata=pageMeta('Find events and activities near you','Explore events across the U.S. View locations, save ideas to an activity planner, and visit the ticket provider when you are ready to buy.','/');
 const price=amount=>amount==='0'||amount==='0.00'?'Free':`From $${Number(amount).toFixed(2)}`;
 export default async function Home({searchParams}){
  const query=await searchParams;

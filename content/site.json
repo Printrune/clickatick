@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 108,
+  "version": 109,
   "isDemo": false,
   "business": {
     "name": "clickatick",
@@ -177,8 +177,8 @@
   },
   "articles": [],
   "solutions": [],
-  "siteUrl": null,
-  "publicationApproved": false,
+  "siteUrl": "https://clickatick.com",
+  "publicationApproved": true,
   "launchTransition": {
     "ownerDecision": "Make organizer event creation, publishing, public listings, and discovery live. Keep payment and checkout simulated until a provider is connected and verified.",
     "decisionDate": "2026-10-22",

@@ -1,0 +1,3 @@
+import {getPlanner,addPlannerEvent,plannerError,cookieHeader} from '../../../lib/activity-planner.mjs';
+export async function GET(request){try{return Response.json(await getPlanner(request),{headers:{'Cache-Control':'no-store'}});}catch(error){return plannerError(error);}}
+export async function POST(request){try{const result=await addPlannerEvent(request),headers={'Cache-Control':'no-store'};if(result.cookie)headers['Set-Cookie']=cookieHeader(result.cookie,request);return Response.json({item:result.item,created:result.created},{status:result.created?201:200,headers});}catch(error){return plannerError(error);}}

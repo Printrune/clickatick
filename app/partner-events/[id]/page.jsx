@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {fetchTicketmasterEvent} from '../../../lib/ticketmaster-events.mjs';
+import {absolute,indexable} from '../../../lib/site';
+import {partnerEventSchema,safeJsonLd} from '../../../lib/event-seo.mjs';
+import SaveEventButton from '../../../components/SaveEventButton';
 import './partner-event.css';
 
 function dateLabel(event){
@@ -18,7 +21,9 @@ async function readEvent(id){try{return {event:await fetchTicketmasterEvent(id),
 export async function generateMetadata({params}){
   const {id}=await params;
   const {event}=await readEvent(id);
-  return {title:event?`${event.title} tickets`:'Partner event',description:event?`Explore ${event.title} on Clickatick. Buy tickets with the ticket provider.`:'Explore partner events on Clickatick.'};
+  const eligible=Boolean(event&&event.status!=='cancelled');
+  const description=event?`${event.title}${event.city?` in ${event.city}`:''}. See the date, venue and event details on Clickatick; buy tickets with the provider.`:'Explore partner events on Clickatick.';
+  return {title:event?`${event.title} tickets`:'Partner event',description,alternates:{canonical:eligible&&indexable?absolute(`/partner-events/${id}`):undefined},robots:{index:indexable&&eligible,follow:indexable},openGraph:event?{title:event.title,description,images:event.imageUrl?[event.imageUrl]:[]}:undefined};
 }
 
 export default async function PartnerEventPage({params}){
@@ -27,5 +32,6 @@ export default async function PartnerEventPage({params}){
   if(!event&&!unavailable)notFound();
   if(unavailable)return <div className="partner-detail"><Link href="/">← Back to events</Link><section className="partner-detail-unavailable"><h1>Event details are temporarily unavailable.</h1><p>Please try again in a moment.</p><Link href={`/partner-events/${encodeURIComponent(id)}`}>Retry</Link></section></div>;
   const seller=new URL(event.url).hostname.replace(/^www\./,'');
-  return <div className="partner-detail"><Link className="partner-detail-back" href="/">← Back to events</Link><article><header className="partner-detail-hero"><div className="partner-detail-copy"><p className="partner-detail-source">Ticketmaster network event</p><h1>{event.title}</h1><p className="partner-detail-lead">{dateLabel(event)}</p><p>{[event.venue,event.address].filter(Boolean).join(' · ')||'Venue details on the ticket provider’s site'}</p>{event.category&&<p className="partner-detail-category">{event.category}</p>}<a className="partner-detail-buy" href={event.url} target="_blank" rel="noopener noreferrer">Buy tickets with the provider <span aria-hidden="true">↗</span></a><small>Opens {seller} in a new tab. Final availability, prices, fees and payment are handled there.</small></div><figure className="partner-detail-art">{event.imageUrl?<img src={event.imageUrl} alt=""/>:<div className="partner-detail-fallback" aria-hidden="true">✦</div>}{event.imageAttribution&&<figcaption>Image: {event.imageAttribution}</figcaption>}</figure></header>{(event.info||event.pleaseNote)&&<section className="partner-detail-info"><h2>About this event</h2>{event.info&&<p>{event.info}</p>}{event.pleaseNote&&<p>{event.pleaseNote}</p>}</section>}<aside className="partner-detail-provider"><h2>Tickets are sold by the provider</h2><p>Clickatick helps you discover this event. Your purchase happens on {seller}; Clickatick’s 10% organizer fee does not apply to these tickets.</p></aside></article></div>;
+  const schema=indexable?partnerEventSchema(event,absolute(`/partner-events/${id}`)):null;
+  return <div className="partner-detail"><Link className="partner-detail-back" href="/">← Back to events</Link><article><header className="partner-detail-hero"><div className="partner-detail-copy"><p className="partner-detail-source">Ticketmaster network event</p><h1>{event.title}</h1><p className="partner-detail-lead">{dateLabel(event)}</p><p>{[event.venue,event.address].filter(Boolean).join(' · ')||'Venue details on the ticket provider’s site'}</p>{event.category&&<p className="partner-detail-category">{event.category}</p>}<div className="partner-detail-actions"><a className="partner-detail-buy" href={event.url} target="_blank" rel="noopener noreferrer">Buy tickets with the provider <span aria-hidden="true">↗</span></a><SaveEventButton source="ticketmaster" id={event.id}/></div><small>Opens {seller} in a new tab. Final availability, prices, fees and payment are handled there.</small></div><figure className="partner-detail-art">{event.imageUrl?<img src={event.imageUrl} alt=""/>:<div className="partner-detail-fallback" aria-hidden="true">✦</div>}{event.imageAttribution&&<figcaption>Image: {event.imageAttribution}</figcaption>}</figure></header>{(event.info||event.pleaseNote)&&<section className="partner-detail-info"><h2>About this event</h2>{event.info&&<p>{event.info}</p>}{event.pleaseNote&&<p>{event.pleaseNote}</p>}</section>}<aside className="partner-detail-provider"><h2>Tickets are sold by the provider</h2><p>Clickatick helps you discover this event. Your purchase happens on {seller}; Clickatick’s 10% organizer fee does not apply to these tickets.</p></aside></article>{schema&&<script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd(schema)}}/>}</div>;
 }

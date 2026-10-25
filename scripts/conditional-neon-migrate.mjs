@@ -18,12 +18,14 @@ const run=mode=>new Promise((resolve,reject)=>{
 });
 
 const inspection=JSON.parse((await run('inspect')).trim());
-if(inspection.tables===0&&inspection.applied.length===0&&inspection.pending.length===8){
- process.stdout.write('Fresh Neon database confirmed. Applying eight migrations.\n');
-}else if(inspection.applied.length===7&&inspection.pending.length===1&&inspection.pending[0]==='008_integrated_promotions_referrals.sql'){
- process.stdout.write('Seven-migration ledger found. Applying the promotions migration.\n');
-}else if(inspection.applied.length===8&&inspection.pending.length===0){
- process.stdout.write('Existing eight-migration ledger found. Verifying hashes.\n');
+if(inspection.tables===0&&inspection.applied.length===0&&inspection.pending.length===9){
+ process.stdout.write('Fresh Neon database confirmed. Applying nine migrations.\n');
+}else if(inspection.applied.length===8&&inspection.pending.length===1&&inspection.pending[0]==='009_event_planner.sql'){
+ process.stdout.write('Eight-migration ledger found. Applying the planner migration.\n');
+}else if(inspection.applied.length===7&&inspection.pending.length===2&&inspection.pending[0]==='008_integrated_promotions_referrals.sql'&&inspection.pending[1]==='009_event_planner.sql'){
+ process.stdout.write('Seven-migration ledger found. Applying the promotions and planner migrations.\n');
+}else if(inspection.applied.length===9&&inspection.pending.length===0){
+ process.stdout.write('Existing nine-migration ledger found. Verifying hashes.\n');
 }else{
  throw new Error('Neon schema is neither fresh nor fully migrated. Manual inspection is required.');
 }
