@@ -16,6 +16,7 @@ test('server fetch uses the private key and official United States event endpoin
   const result=await fetchTicketmasterEvents({key:'test-private-key',fetchImpl:async url=>{called=url;return {ok:true,json:async()=>({_embedded:{events:[{id:'123',name:'Show',url:'https://www.ticketmaster.com/event/123'}]}})};}});
   assert.equal(called.hostname,'app.ticketmaster.com');
   assert.equal(called.searchParams.get('countryCode'),'US');
+  assert.equal(called.searchParams.get('page'),'0');
   assert.equal(called.searchParams.get('apikey'),'test-private-key');
   assert.equal(result.events.length,1);
   assert.equal(JSON.stringify(result).includes('test-private-key'),false);
@@ -23,5 +24,13 @@ test('server fetch uses the private key and official United States event endpoin
 
 test('does not call Ticketmaster before a key is configured',async()=>{
   const result=await fetchTicketmasterEvents({key:'',fetchImpl:()=>{throw new Error('must not call');}});
-  assert.deepEqual(result,{events:[],configured:false});
+  assert.deepEqual(result,{events:[],configured:false,nextPage:null});
+});
+
+test('requests a later page and stops at Ticketmaster’s page count',async()=>{
+  let called;
+  const result=await fetchTicketmasterEvents({key:'test',page:1,fetchImpl:async url=>{called=url;return {ok:true,json:async()=>({page:{totalPages:2},_embedded:{events:[{id:'2',name:'Show 2',url:'https://www.ticketmaster.com/event/2'}]}})};}});
+  assert.equal(called.searchParams.get('page'),'1');
+  assert.equal(result.nextPage,null);
+  await assert.rejects(fetchTicketmasterEvents({key:'test',page:83}),RangeError);
 });
