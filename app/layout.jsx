@@ -3,4 +3,4 @@ import './bubble.css';import Chrome from '../components/Chrome';import {site,ind
 import './theme.css';
 import {THEME_BOOTSTRAP} from '../lib/theme.mjs';
 export const metadata={title:{default:site.business.name,template:`%s | ${site.business.name}`},description:site.business.description,robots:{index:indexable,follow:indexable}};
-export default function RootLayout({children}){return <html lang="en" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{__html:THEME_BOOTSTRAP}}/></head><body style={{'--accent':site.brand.accent,'--ink':site.brand.ink,'--paper':site.brand.paper}}><Chrome>{children}</Chrome></body></html>}
+export default function RootLayout({children}){return <html lang="en" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{__html:THEME_BOOTSTRAP}}/></head><body style={{'--accent':site.brand.accent,'--ink':site.brand.ink,'--paper':site.brand.paper}}><Chrome>{children}</Chrome><p className="site-verification">Impact-Site-Verification: e12cd04e-9624-48c9-80de-07b0ccad8fee</p></body></html>}
