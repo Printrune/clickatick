@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {fetchTicketmasterEvents,normalizeTicketmasterEvent} from '../lib/ticketmaster-events.mjs';
+import {fetchTicketmasterEvent,fetchTicketmasterEvents,normalizeTicketmasterEvent} from '../lib/ticketmaster-events.mjs';
 
 test('normalizes a public partner listing without exposing checkout internals',()=>{
   const event=normalizeTicketmasterEvent({id:'123',name:'Autumn Show',url:'https://www.ticketmaster.com/event/123',dates:{start:{localDate:'2026-11-01'}},_embedded:{venues:[{name:'City Hall',city:{name:'Austin'},state:{stateCode:'TX'}}]},images:[{url:'https://example.com/poster.jpg',width:300}]});
@@ -35,4 +35,15 @@ test('requests a later page and stops at Ticketmaster’s page count',async()=>{
   assert.equal(called.searchParams.get('page'),'1');
   assert.equal(result.nextPage,null);
   await assert.rejects(fetchTicketmasterEvents({key:'test',page:83}),RangeError);
+});
+
+test('reads one event for the Clickatick detail page without exposing the key',async()=>{
+  let called;
+  const event=await fetchTicketmasterEvent('abc-123',{key:'private-key',fetchImpl:async url=>{called=url;return {ok:true,json:async()=>({id:'abc-123',name:'Autumn Tour',url:'https://www.ticketmaster.com/event/abc-123',dates:{start:{localDate:'2026-11-01',localTime:'19:30:00'}},_embedded:{venues:[{name:'City Hall',address:{line1:'1 Main St'},city:{name:'Austin'},state:{stateCode:'TX'}}]},info:'Guided tour'})};}});
+  assert.equal(called.pathname,'/discovery/v2/events/abc-123.json');
+  assert.equal(event.address,'1 Main St, Austin, TX');
+  assert.equal(event.localTime,'19:30:00');
+  assert.equal(event.info,'Guided tour');
+  assert.equal(JSON.stringify(event).includes('private-key'),false);
+  assert.equal(await fetchTicketmasterEvent('../bad',{key:'private-key',fetchImpl:()=>{throw new Error('must not call');}}),null);
 });
