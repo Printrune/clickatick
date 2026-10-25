@@ -9,6 +9,8 @@ test('normalizes a public partner listing without exposing checkout internals',(
   assert.equal(event.source,'Ticketmaster');
   assert.equal('price' in event,false);
   assert.equal(normalizeTicketmasterEvent({id:'bad',name:'Bad',url:'javascript:alert(1)'}),null);
+  const tracked=normalizeTicketmasterEvent({id:'tracked',name:'Show',url:'https://ticketmaster.evyy.net/c/1/2?u=https%3A%2F%2Fwww.ticketmaster.com%2Fevent%2F123&utm_medium=affiliate'});
+  assert.equal(tracked.url,'https://www.ticketmaster.com/event/123');
 });
 
 test('server fetch uses the private key and official United States event endpoint',async()=>{
