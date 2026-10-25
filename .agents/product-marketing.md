@@ -1,6 +1,6 @@
 # Product marketing context
 
-Version: 109
+Version: 110
 Business: clickatick
 Buying context: b2b
 Customer: Independent local event organisers and activity providers in the United States.

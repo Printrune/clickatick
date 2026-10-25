@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": 109,
+  "version": 110,
   "isDemo": false,
   "business": {
     "name": "clickatick",
@@ -857,5 +857,10 @@
     ],
     "publicProjection": "published_events",
     "hostedDemoStore": "Private Vercel Blob; anonymous immutable demo listing/receipt namespace separate from legacy authenticated database."
+  },
+  "mapPlannerRelease": {
+    "ownerDecision": "Publish the verified event map and activity planner on clickatick.com; research nationwide U.S. event venues.",
+    "venueResearch": "research/us-event-venues-v1.md",
+    "venueInventoryStatus": "Research only. No complete U.S. venue catalog or venue-only search pages are approved."
   }
 }
